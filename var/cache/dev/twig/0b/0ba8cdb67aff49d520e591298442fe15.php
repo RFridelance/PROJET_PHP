@@ -83,24 +83,50 @@ class __TwigTemplate_7a85f19798925c7401f91708966f2f27 extends Template
             </li>
 
         </ul>
-        <ul class=\"navbar-nav ml-auto\"> ";
-        // line 33
-        yield "            <li class=\"nav-item\">
-                <a class=\"nav-link\" href=\"";
+        <ul class=\"navbar-nav ml-auto\">
+            <li class=\"nav-item\">
+                ";
         // line 34
-        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_profile");
-        yield "\">Profile</a>
-            </li>
+        if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("IS_AUTHENTICATED_FULLY")) {
+            // line 35
+            yield "                    <a class=\"nav-link\" href=\"";
+            yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_profile");
+            yield "\">Profile</a>
+                ";
+        } else {
+            // line 37
+            yield "                    <a class=\"nav-link\" href=\"";
+            yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
+            yield "\">Connexion</a>
+                ";
+        }
+        // line 39
+        yield "            </li>
+            <li class=\"nav-item\">
+                ";
+        // line 41
+        if ( !$this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("IS_AUTHENTICATED_FULLY")) {
+            // line 42
+            yield "                    <a class=\"nav-link\" href=\"";
+            yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_register");
+            yield "\">Inscription</a>
+                ";
+        }
+        // line 44
+        yield "            </li>
+        </ul>
+
+
         </ul>
     </div>
 </nav>
 
 <div class=\"container\">
     ";
-        // line 42
+        // line 54
         yield "    ";
         yield from $this->unwrap()->yieldBlock('body', $context, $blocks);
-        // line 43
+        // line 55
         yield "</div>
 </body>
 </html>
@@ -125,7 +151,7 @@ class __TwigTemplate_7a85f19798925c7401f91708966f2f27 extends Template
         return; yield '';
     }
 
-    // line 42
+    // line 54
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -159,7 +185,7 @@ class __TwigTemplate_7a85f19798925c7401f91708966f2f27 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  129 => 42,  115 => 7,  104 => 43,  101 => 42,  91 => 34,  88 => 33,  78 => 25,  72 => 22,  61 => 14,  54 => 9,  50 => 7,  43 => 2,);
+        return array (  155 => 54,  141 => 7,  130 => 55,  127 => 54,  116 => 44,  110 => 42,  108 => 41,  104 => 39,  98 => 37,  92 => 35,  90 => 34,  78 => 25,  72 => 22,  61 => 14,  54 => 9,  50 => 7,  43 => 2,);
     }
 
     public function getSourceContext()
@@ -195,10 +221,22 @@ class __TwigTemplate_7a85f19798925c7401f91708966f2f27 extends Template
             </li>
 
         </ul>
-        <ul class=\"navbar-nav ml-auto\"> {# Ajout de la classe ml-auto ici pour aligner à droite #}
+        <ul class=\"navbar-nav ml-auto\">
             <li class=\"nav-item\">
-                <a class=\"nav-link\" href=\"{{ path('app_profile') }}\">Profile</a>
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <a class=\"nav-link\" href=\"{{ path('app_profile') }}\">Profile</a>
+                {% else %}
+                    <a class=\"nav-link\" href=\"{{ path('app_login') }}\">Connexion</a>
+                {% endif %}
             </li>
+            <li class=\"nav-item\">
+                {% if not is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <a class=\"nav-link\" href=\"{{ path('app_register') }}\">Inscription</a>
+                {% endif %}
+            </li>
+        </ul>
+
+
         </ul>
     </div>
 </nav>
