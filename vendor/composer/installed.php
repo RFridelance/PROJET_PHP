@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'd0eba862a2920f54589551dca145d797e3fda0ca',
+        'reference' => 'ed33c9d1d0487b0936fbd9a8a2ba66de8c4e32c9',
         'name' => '__root__',
         'dev' => true,
     ),
@@ -16,7 +16,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'd0eba862a2920f54589551dca145d797e3fda0ca',
+            'reference' => 'ed33c9d1d0487b0936fbd9a8a2ba66de8c4e32c9',
             'dev_requirement' => false,
         ),
         'doctrine/annotations' => array(
@@ -170,6 +170,24 @@
             'install_path' => __DIR__ . '/../doctrine/sql-formatter',
             'aliases' => array(),
             'reference' => 'd1ac84aef745c69ea034929eb6d65a6908b675cc',
+            'dev_requirement' => false,
+        ),
+        'knplabs/knp-components' => array(
+            'pretty_version' => 'v4.4.0',
+            'version' => '4.4.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../knplabs/knp-components',
+            'aliases' => array(),
+            'reference' => '59ef316e34e814449d8718d7151946bdbb5e553f',
+            'dev_requirement' => false,
+        ),
+        'knplabs/knp-paginator-bundle' => array(
+            'pretty_version' => 'v6.4.0',
+            'version' => '6.4.0.0',
+            'type' => 'symfony-bundle',
+            'install_path' => __DIR__ . '/../knplabs/knp-paginator-bundle',
+            'aliases' => array(),
+            'reference' => 'a9cbcb3c6be5868a2e16a599c7438149c40b4bda',
             'dev_requirement' => false,
         ),
         'nikic/php-parser' => array(
@@ -679,6 +697,15 @@
             'reference' => '5a6ef5cf9b843d5c4221073350fe615995280a82',
             'dev_requirement' => false,
         ),
+        'symfony/translation' => array(
+            'pretty_version' => 'v7.0.8',
+            'version' => '7.0.8.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../symfony/translation',
+            'aliases' => array(),
+            'reference' => '649a646a5aae6e86da1ea119643c53d4080624c2',
+            'dev_requirement' => false,
+        ),
         'symfony/translation-contracts' => array(
             'pretty_version' => 'v3.5.0',
             'version' => '3.5.0.0',
@@ -687,6 +714,12 @@
             'aliases' => array(),
             'reference' => 'b9d2189887bb6b2e0367a9fc7136c5239ab9b05a',
             'dev_requirement' => false,
+        ),
+        'symfony/translation-implementation' => array(
+            'dev_requirement' => false,
+            'provided' => array(
+                0 => '2.3|3.0',
+            ),
         ),
         'symfony/twig-bridge' => array(
             'pretty_version' => 'v7.0.8',

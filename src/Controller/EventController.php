@@ -6,6 +6,7 @@ namespace App\Controller;
 use App\Entity\Event;
 use App\Form\EventType;
 use Doctrine\ORM\EntityManagerInterface;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -39,14 +40,28 @@ class EventController extends AbstractController
     }
 
     #[Route('/events', name: 'app_event_list')]
-    public function list(EntityManagerInterface $entityManager): Response
+    public function list(Request $request, EntityManagerInterface $entityManager, PaginatorInterface $paginator): Response
     {
-        //si user est connecté
+        // Si l'utilisateur est connecté, récupérez tous les événements
         if ($this->getUser()) {
-            $events = $entityManager->getRepository(Event::class)->findAll();
+            $query = $entityManager->getRepository(Event::class)->createQueryBuilder('e')
+                ->orderBy('e.Date', 'DESC') // Ordonner par date DESC ou une autre colonne appropriée
+                ->getQuery();
         } else {
-            $events = $entityManager->getRepository(Event::class)->findBy(['public' => true]);
+            // Sinon, récupérez seulement les événements publics
+            $query = $entityManager->getRepository(Event::class)->createQueryBuilder('e')
+                ->where('e.public = true')
+                ->orderBy('e.Date', 'DESC') // Ordonner par date DESC ou une autre colonne appropriée
+                ->getQuery();
         }
+
+        // Paginer les résultats
+        $events = $paginator->paginate(
+            $query,
+            $request->query->getInt('page', 1), // Récupérer le numéro de la page à afficher
+            2 // Nombre d'éléments par page
+        );
+
         return $this->render('event/list.html.twig', [
             'events' => $events,
         ]);
