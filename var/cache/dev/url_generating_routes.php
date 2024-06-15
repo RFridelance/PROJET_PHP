@@ -12,6 +12,8 @@ return [
     'app_login' => [[], ['_controller' => 'App\\Controller\\SecurityController::login'], [], [['text', '/login']], [], [], []],
     'app_logout' => [[], ['_controller' => 'App\\Controller\\SecurityController::logout'], [], [['text', '/logout']], [], [], []],
     'app_user' => [[], ['_controller' => 'App\\Controller\\UserController::index'], [], [['text', '/user']], [], [], []],
+    'user_update' => [['id'], ['_controller' => 'App\\Controller\\UserController::edit'], [], [['text', '/update'], ['variable', '/', '[^/]++', 'id', true], ['text', '/user']], [], [], []],
+    'user_change_password' => [[], ['_controller' => 'App\\Controller\\UserController::changePassword'], [], [['text', '/profile/change-password']], [], [], []],
     'App\Controller\AccueilController::index' => [[], ['_controller' => 'App\\Controller\\AccueilController::index'], [], [['text', '/']], [], [], []],
     'App\Controller\EventController::new' => [[], ['_controller' => 'App\\Controller\\EventController::new'], [], [['text', '/event/new']], [], [], []],
     'App\Controller\EventController::list' => [[], ['_controller' => 'App\\Controller\\EventController::list'], [], [['text', '/events']], [], [], []],
@@ -20,4 +22,6 @@ return [
     'App\Controller\SecurityController::login' => [[], ['_controller' => 'App\\Controller\\SecurityController::login'], [], [['text', '/login']], [], [], []],
     'App\Controller\SecurityController::logout' => [[], ['_controller' => 'App\\Controller\\SecurityController::logout'], [], [['text', '/logout']], [], [], []],
     'App\Controller\UserController::index' => [[], ['_controller' => 'App\\Controller\\UserController::index'], [], [['text', '/user']], [], [], []],
+    'App\Controller\UserController::edit' => [['id'], ['_controller' => 'App\\Controller\\UserController::edit'], [], [['text', '/update'], ['variable', '/', '[^/]++', 'id', true], ['text', '/user']], [], [], []],
+    'App\Controller\UserController::changePassword' => [[], ['_controller' => 'App\\Controller\\UserController::changePassword'], [], [['text', '/profile/change-password']], [], [], []],
 ];

@@ -29,9 +29,18 @@
             </li>
 
         </ul>
-        <ul class="navbar-nav ml-auto"> {# Ajout de la classe ml-auto ici pour aligner à droite #}
+        <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link" href="{{ path('app_profile') }}">Profile</a>
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <a class="nav-link" href="{{ path('app_profile') }}">Profile</a>
+                {% else %}
+                    <a class="nav-link" href="{{ path('app_login') }}">Connexion</a>
+                {% endif %}
+            </li>
+            <li class="nav-item">
+                {% if not is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <a class="nav-link" href="{{ path('app_register') }}">Inscription</a>
+                {% endif %}
             </li>
         </ul>
     </div>

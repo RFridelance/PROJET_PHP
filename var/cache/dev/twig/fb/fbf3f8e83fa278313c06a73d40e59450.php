@@ -57,23 +57,37 @@ class __TwigTemplate_2eab62590649d6216e50d9ab702e60a1 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 4
-        yield "<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+        yield "    <style>
+        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    </style>
 
-<div class=\"example-wrapper\">
-    <h1>Hello ";
-        // line 10
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape((isset($context["controller_name"]) || array_key_exists("controller_name", $context) ? $context["controller_name"] : (function () { throw new RuntimeError('Variable "controller_name" does not exist.', 10, $this->source); })()), "html", null, true);
-        yield "! ✅</h1>
+    <div class=\"example-wrapper\">
+        <h1>Profile </h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>/src/Controller/ProfileController.php</code></li>
-        <li>Your template at <code>/templates/profile/index.html.twig</code></li>
-    </ul>
-</div>
+        <p>Voici votre profil :</p>
+        <p>Nom : ";
+        // line 13
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 13, $this->source); })()), "name", [], "any", false, false, false, 13), "html", null, true);
+        yield "</p>
+        <p>Prénom : ";
+        // line 14
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 14, $this->source); })()), "firstname", [], "any", false, false, false, 14), "html", null, true);
+        yield "</p>
+        <p>Email : ";
+        // line 15
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 15, $this->source); })()), "email", [], "any", false, false, false, 15), "html", null, true);
+        yield "</p>
+
+        <a href=\"";
+        // line 17
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("user_update", ["id" => CoreExtension::getAttribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 17, $this->source); })()), "id", [], "any", false, false, false, 17)]), "html", null, true);
+        yield "\" class=\"btn btn-primary\">Modifier mes informations</a>
+        <a href=\"";
+        // line 18
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("user_change_password");
+        yield "\" class=\"btn btn-primary\">Modifier mon mot de passe</a>
+    </div>
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -102,7 +116,7 @@ class __TwigTemplate_2eab62590649d6216e50d9ab702e60a1 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  68 => 10,  60 => 4,  53 => 3,  36 => 1,);
+        return array (  88 => 18,  84 => 17,  79 => 15,  75 => 14,  71 => 13,  60 => 4,  53 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -110,20 +124,22 @@ class __TwigTemplate_2eab62590649d6216e50d9ab702e60a1 extends Template
         return new Source("{% extends 'base.html.twig' %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <style>
+        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    </style>
 
-<div class=\"example-wrapper\">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <div class=\"example-wrapper\">
+        <h1>Profile </h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>/src/Controller/ProfileController.php</code></li>
-        <li>Your template at <code>/templates/profile/index.html.twig</code></li>
-    </ul>
-</div>
+        <p>Voici votre profil :</p>
+        <p>Nom : {{ user.name }}</p>
+        <p>Prénom : {{ user.firstname }}</p>
+        <p>Email : {{ user.email }}</p>
+
+        <a href=\"{{ path('user_update', {'id': user.id}) }}\" class=\"btn btn-primary\">Modifier mes informations</a>
+        <a href=\"{{ path('user_change_password') }}\" class=\"btn btn-primary\">Modifier mon mot de passe</a>
+    </div>
 {% endblock %}
 ", "profile/index.html.twig", "/home/alvann/PhpstormProjects/Projet/templates/profile/index.html.twig");
     }
