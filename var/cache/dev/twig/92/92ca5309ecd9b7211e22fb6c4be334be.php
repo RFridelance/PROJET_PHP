@@ -26,6 +26,7 @@ class __TwigTemplate_edc89f5f2c18a1e4cce1aed6c56ae9ba extends Template
         $this->source = $this->getSourceContext();
 
         $this->blocks = [
+            'title' => [$this, 'block_title'],
             'body' => [$this, 'block_body'],
         ];
     }
@@ -50,30 +51,60 @@ class __TwigTemplate_edc89f5f2c18a1e4cce1aed6c56ae9ba extends Template
     }
 
     // line 4
+    public function block_title($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
+
+        yield "Accueil - Événements";
+        
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
+
+        return; yield '';
+    }
+
+    // line 6
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 5
-        yield "    <style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+        // line 7
+        yield "    <div class=\"jumbotron text-center\">
+        <h1 class=\"display-4\">Bienvenue sur Notre Site d'Événements</h1>
+        <p class=\"lead\">Découvrez et participez à nos événements passionnants.</p>
+        <hr class=\"my-4\">
+        <p>Rejoignez-nous pour des expériences inoubliables.</p>
+        <a class=\"btn btn-primary btn-lg\" href=\"";
+        // line 12
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_event");
+        yield "\" role=\"button\">Voir les Événements</a>
+    </div>
 
-<div class=\"example-wrapper\">
-    <h1>Hello ";
-        // line 11
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape((isset($context["controller_name"]) || array_key_exists("controller_name", $context) ? $context["controller_name"] : (function () { throw new RuntimeError('Variable "controller_name" does not exist.', 11, $this->source); })()), "html", null, true);
-        yield "! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>/src/Controller/AccueilController.php</code></li>
-        <li>Your template at <code>/templates/accueil/index.html.twig</code></li>
-    </ul>
-</div>
+    <div class=\"container\">
+        <div class=\"row\">
+            <div class=\"col-md-4\">
+                <h2>Événements à venir</h2>
+                <p>Découvrez nos événements à venir et réservez votre place dès maintenant.</p>
+                <p><a class=\"btn btn-secondary\" href=\"";
+        // line 20
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_event");
+        yield "\" role=\"button\">Voir détails &raquo;</a></p>
+            </div>
+            <div class=\"col-md-4\">
+                <h2>À propos de nous</h2>
+                <p>En savoir plus sur notre organisation et notre mission.</p>
+                <p><a class=\"btn btn-secondary\" href=\"#\" role=\"button\">En savoir plus &raquo;</a></p>
+            </div>
+            <div class=\"col-md-4\">
+                <h2>Contactez-nous</h2>
+                <p>Vous avez des questions ? N'hésitez pas à nous contacter.</p>
+                <p><a class=\"btn btn-secondary\" href=\"#\" role=\"button\">Contact &raquo;</a></p>
+            </div>
+        </div>
+    </div>
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -102,7 +133,7 @@ class __TwigTemplate_edc89f5f2c18a1e4cce1aed6c56ae9ba extends Template
      */
     public function getDebugInfo()
     {
-        return array (  68 => 11,  60 => 5,  53 => 4,  36 => 1,);
+        return array (  93 => 20,  82 => 12,  75 => 7,  68 => 6,  54 => 4,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -110,21 +141,36 @@ class __TwigTemplate_edc89f5f2c18a1e4cce1aed6c56ae9ba extends Template
         return new Source("{% extends 'base.html.twig' %}
 
 
+{% block title %}Accueil - Événements{% endblock %}
+
 {% block body %}
-    <style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <div class=\"jumbotron text-center\">
+        <h1 class=\"display-4\">Bienvenue sur Notre Site d'Événements</h1>
+        <p class=\"lead\">Découvrez et participez à nos événements passionnants.</p>
+        <hr class=\"my-4\">
+        <p>Rejoignez-nous pour des expériences inoubliables.</p>
+        <a class=\"btn btn-primary btn-lg\" href=\"{{ path('app_event') }}\" role=\"button\">Voir les Événements</a>
+    </div>
 
-<div class=\"example-wrapper\">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>/src/Controller/AccueilController.php</code></li>
-        <li>Your template at <code>/templates/accueil/index.html.twig</code></li>
-    </ul>
-</div>
+    <div class=\"container\">
+        <div class=\"row\">
+            <div class=\"col-md-4\">
+                <h2>Événements à venir</h2>
+                <p>Découvrez nos événements à venir et réservez votre place dès maintenant.</p>
+                <p><a class=\"btn btn-secondary\" href=\"{{ path('app_event') }}\" role=\"button\">Voir détails &raquo;</a></p>
+            </div>
+            <div class=\"col-md-4\">
+                <h2>À propos de nous</h2>
+                <p>En savoir plus sur notre organisation et notre mission.</p>
+                <p><a class=\"btn btn-secondary\" href=\"#\" role=\"button\">En savoir plus &raquo;</a></p>
+            </div>
+            <div class=\"col-md-4\">
+                <h2>Contactez-nous</h2>
+                <p>Vous avez des questions ? N'hésitez pas à nous contacter.</p>
+                <p><a class=\"btn btn-secondary\" href=\"#\" role=\"button\">Contact &raquo;</a></p>
+            </div>
+        </div>
+    </div>
 {% endblock %}
 ", "accueil/index.html.twig", "/home/alvann/PhpstormProjects/Projet/templates/accueil/index.html.twig");
     }
