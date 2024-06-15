@@ -23,15 +23,17 @@ class EventController extends AbstractController
 
         $form->handleRequest($request);
 
-        if ($form->isSubmitted()) {
-            if ($form->isValid()) {
-                $entityManager->persist($event);
-                $entityManager->flush();
+        if ($form->isSubmitted() && $form->isValid()) {
+            // Récupérer l'utilisateur connecté
+            $user = $this->getUser();
 
-                return $this->redirectToRoute('app_event_list');
-            } else {
-                $this->addFlash('danger', 'Le formulaire contient des erreurs. Veuillez les corriger.');
-            }
+            // Associer l'utilisateur comme créateur de l'événement
+            $event->setCreator($user);
+
+            $entityManager->persist($event);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('app_event_list');
         }
 
         return $this->render('event/new.html.twig', [
@@ -45,13 +47,13 @@ class EventController extends AbstractController
         // Si l'utilisateur est connecté, récupérez tous les événements
         if ($this->getUser()) {
             $query = $entityManager->getRepository(Event::class)->createQueryBuilder('e')
-                ->orderBy('e.Date', 'DESC') // Ordonner par date DESC ou une autre colonne appropriée
+                ->orderBy('e.Date', 'DESC')
                 ->getQuery();
         } else {
             // Sinon, récupérez seulement les événements publics
             $query = $entityManager->getRepository(Event::class)->createQueryBuilder('e')
                 ->where('e.public = true')
-                ->orderBy('e.Date', 'DESC') // Ordonner par date DESC ou une autre colonne appropriée
+                ->orderBy('e.Date', 'DESC')
                 ->getQuery();
         }
 
@@ -59,13 +61,14 @@ class EventController extends AbstractController
         $events = $paginator->paginate(
             $query,
             $request->query->getInt('page', 1), // Récupérer le numéro de la page à afficher
-            15 // Nombre d'éléments par page
+            10 // Nombre d'éléments par page
         );
 
         return $this->render('event/list.html.twig', [
             'events' => $events,
         ]);
     }
+
 
     #[Route('/inscriptions', name: 'app_inscriptions')]
     public function inscriptions(UserInterface $user): Response
