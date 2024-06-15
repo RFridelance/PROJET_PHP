@@ -59,7 +59,7 @@ class EventController extends AbstractController
         $events = $paginator->paginate(
             $query,
             $request->query->getInt('page', 1), // Récupérer le numéro de la page à afficher
-            2 // Nombre d'éléments par page
+            15 // Nombre d'éléments par page
         );
 
         return $this->render('event/list.html.twig', [

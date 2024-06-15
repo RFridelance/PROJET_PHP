@@ -12,6 +12,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\GreaterThanOrEqual;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 class EventType extends AbstractType
 {
@@ -20,14 +21,21 @@ class EventType extends AbstractType
         $builder
             ->add('title', TextType::class, [
                 'label' => 'Titre de l\'événement',
+                'constraints' => [
+                    new NotBlank(['message' => 'Veuillez entrer un titre pour l\'événement.']),
+                ],
             ])
             ->add('description', TextareaType::class, [
                 'label' => 'Description de l\'événement',
+                'constraints' => [
+                    new NotBlank(['message' => 'Veuillez entrer une description pour l\'événement.']),
+                ],
             ])
             ->add('date', DateType::class, [
                 'widget' => 'single_text',
                 'label' => 'Date de l\'événement',
                 'constraints' => [
+                    new NotBlank(['message' => 'Veuillez sélectionner une date pour l\'événement.']),
                     new GreaterThanOrEqual([
                         'value' => 'today',
                         'message' => 'La date de l\'événement doit être égale ou supérieure à aujourd\'hui.',
@@ -36,6 +44,9 @@ class EventType extends AbstractType
             ])
             ->add('participant_max', IntegerType::class, [
                 'label' => 'Nombre maximum de participants',
+                'constraints' => [
+                    new NotBlank(['message' => 'Veuillez indiquer le nombre maximum de participants.']),
+                ],
             ])
             ->add('public', CheckboxType::class, [
                 'label' => 'Événement public',
