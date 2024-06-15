@@ -1,0 +1,23 @@
+{# templates/event/list.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Événements{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <h1>Liste des Événements</h1>
+
+        <div class="mb-3">
+            <a class="btn btn-primary" href="{{ path('app_event_new') }}" role="button">Créer un événement</a>
+        </div>
+
+        <ul>
+            {% for event in events %}
+                <li>{{ event.title }} - {{ event.date|date('Y-m-d') }}</li>
+            {% else %}
+                <li>Aucun événement trouvé.</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

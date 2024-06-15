@@ -1,6 +1,5 @@
 {% extends 'base.html.twig' %}
 
-
 {% block title %}Accueil - Événements{% endblock %}
 
 {% block body %}
@@ -9,7 +8,7 @@
         <p class="lead">Découvrez et participez à nos événements passionnants.</p>
         <hr class="my-4">
         <p>Rejoignez-nous pour des expériences inoubliables.</p>
-        <a class="btn btn-primary btn-lg" href="{{ path('app_event') }}" role="button">Voir les Événements</a>
+        <a class="btn btn-primary btn-lg" href="{{ path('app_event_list') }}" role="button">Voir les Événements</a>
     </div>
 
     <div class="container">
@@ -17,7 +16,7 @@
             <div class="col-md-4">
                 <h2>Événements à venir</h2>
                 <p>Découvrez nos événements à venir et réservez votre place dès maintenant.</p>
-                <p><a class="btn btn-secondary" href="{{ path('app_event') }}" role="button">Voir détails &raquo;</a></p>
+                <p><a class="btn btn-secondary" href="{{ path('app_event_list') }}" role="button">Voir détails &raquo;</a></p>
             </div>
             <div class="col-md-4">
                 <h2>À propos de nous</h2>
