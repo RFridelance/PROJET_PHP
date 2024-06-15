@@ -307,7 +307,7 @@
     </service>
     <service id="argument_resolver.service" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
       <tag priority="-50" name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">controller.argument_value_resolver</tag>
-      <argument type="service" id=".service_locator.rWyuP5M"/>
+      <argument type="service" id=".service_locator.XvvLqBx"/>
     </service>
     <service id="argument_resolver.default" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver">
       <tag priority="-100" name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver">controller.argument_value_resolver</tag>
@@ -2419,7 +2419,7 @@
     </service>
     <service id="argument_resolver.not_tagged_controller" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
       <tag name="controller.argument_value_resolver" priority="-200"/>
-      <argument type="service" id=".service_locator.rWyuP5M"/>
+      <argument type="service" id=".service_locator.XvvLqBx"/>
     </service>
     <service id="routing.resolver" class="Symfony\Component\Config\Loader\LoaderResolver">
       <call method="addLoader">
@@ -5553,6 +5553,13 @@
         <argument key="paginator" type="service_closure" id="knp_paginator"/>
       </argument>
     </service>
+    <service id=".service_locator.Tps9Q2I" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
+        <argument key="event" type="service_closure" id=".errored..service_locator.Tps9Q2I.App\Entity\Event"/>
+      </argument>
+    </service>
     <service id=".service_locator.t7nLwyX" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -5585,9 +5592,11 @@
         <argument key="passwordHasher" type="service_closure" id="security.user_password_hasher"/>
       </argument>
     </service>
-    <service id=".service_locator.rWyuP5M" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.XvvLqBx" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Controller\EventController::delete" type="service_closure" id=".service_locator.Tps9Q2I"/>
+        <argument key="App\Controller\EventController::edit" type="service_closure" id=".service_locator.Tps9Q2I"/>
         <argument key="App\Controller\EventController::inscriptions" type="service_closure" id=".service_locator.t7nLwyX"/>
         <argument key="App\Controller\EventController::list" type="service_closure" id=".service_locator.Ecpu4I3"/>
         <argument key="App\Controller\EventController::new" type="service_closure" id=".service_locator.CsMkqUa"/>
@@ -5599,6 +5608,8 @@
         <argument key="App\Kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.y4_Zrx."/>
         <argument key="kernel::loadRoutes" type="service_closure" id=".service_locator.y4_Zrx."/>
         <argument key="kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.y4_Zrx."/>
+        <argument key="App\Controller\EventController:delete" type="service_closure" id=".service_locator.Tps9Q2I"/>
+        <argument key="App\Controller\EventController:edit" type="service_closure" id=".service_locator.Tps9Q2I"/>
         <argument key="App\Controller\EventController:inscriptions" type="service_closure" id=".service_locator.t7nLwyX"/>
         <argument key="App\Controller\EventController:list" type="service_closure" id=".service_locator.Ecpu4I3"/>
         <argument key="App\Controller\EventController:new" type="service_closure" id=".service_locator.CsMkqUa"/>
@@ -6112,6 +6123,9 @@
     <service id="debug.security.event_dispatcher.main.inner" class="Symfony\Component\EventDispatcher\EventDispatcher"/>
     <service id=".errored..service_locator.y4_Zrx..Symfony\Component\Config\Loader\LoaderInterface" class="Symfony\Component\Config\Loader\LoaderInterface">
       <tag name="container.error" message="Cannot autowire service &quot;.service_locator.y4_Zrx.&quot;: it needs an instance of &quot;Symfony\Component\Config\Loader\LoaderInterface&quot; but this type has been excluded from autowiring."/>
+    </service>
+    <service id=".errored..service_locator.Tps9Q2I.App\Entity\Event" class="App\Entity\Event">
+      <tag name="container.error" message="Cannot autowire service &quot;.service_locator.Tps9Q2I&quot;: it needs an instance of &quot;App\Entity\Event&quot; but this type has been excluded in &quot;config/services.yaml&quot;."/>
     </service>
     <service id=".errored..service_locator.t7nLwyX.Symfony\Component\Security\Core\User\UserInterface" class="Symfony\Component\Security\Core\User\UserInterface">
       <tag name="container.error" message="Cannot autowire service &quot;.service_locator.t7nLwyX&quot;: it references interface &quot;Symfony\Component\Security\Core\User\UserInterface&quot; but no such service exists. Did you create a class that implements this interface?"/>
@@ -6975,7 +6989,7 @@
     <service id="Knp\Component\Pager\ArgumentAccess\ArgumentAccessInterface" alias="Knp\Component\Pager\ArgumentAccess\RequestArgumentAccess"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.bJ.4HC5" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.rWyuP5M"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.XvvLqBx"/>
     <service id="doctrine.id_generator_locator" alias=".service_locator.KLVvNIq"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface" alias="logger"/>
@@ -6991,6 +7005,7 @@
     <service id=".service_locator.gFlme_s" alias=".service_locator.y4_Zrx."/>
     <service id=".service_locator.9e2t_lq" alias=".service_locator.CsMkqUa"/>
     <service id=".service_locator.mRHrHxc" alias=".service_locator.Ecpu4I3"/>
+    <service id=".service_locator.yj3g_Q7" alias=".service_locator.Tps9Q2I"/>
     <service id=".service_locator.uoBNKjJ" alias=".service_locator.t7nLwyX"/>
     <service id=".service_locator.qnm_CJ1" alias=".service_locator.V6D1oJY"/>
     <service id=".service_locator.7NIAq8D" alias=".service_locator.rSTd.nA"/>

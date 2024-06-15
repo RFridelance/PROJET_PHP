@@ -22,12 +22,18 @@ return [
     [ // $regexpList
         0 => '{^(?'
                 .'|/_error/(\\d+)(?:\\.([^/]++))?(*:35)'
-                .'|/user/([^/]++)/update(*:63)'
+                .'|/event/([^/]++)/(?'
+                    .'|edit(*:65)'
+                    .'|delete(*:78)'
+                .')'
+                .'|/user/([^/]++)/update(*:107)'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
         35 => [[['_route' => '_preview_error', '_controller' => 'error_controller::preview', '_format' => 'html'], ['code', '_format'], null, null, false, true, null]],
-        63 => [
+        65 => [[['_route' => 'app_event_edit', '_controller' => 'App\\Controller\\EventController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        78 => [[['_route' => 'app_event_delete', '_controller' => 'App\\Controller\\EventController::delete'], ['id'], ['POST' => 0], null, false, false, null]],
+        107 => [
             [['_route' => 'user_update', '_controller' => 'App\\Controller\\UserController::edit'], ['id'], null, null, false, false, null],
             [null, null, null, null, false, false, 0],
         ],

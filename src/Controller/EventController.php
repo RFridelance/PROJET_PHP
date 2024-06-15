@@ -69,6 +69,50 @@ class EventController extends AbstractController
         ]);
     }
 
+    #[Route('/event/{id}/edit', name: 'app_event_edit', methods: ['GET', 'POST'])]
+    public function edit(Event $event, Request $request, EntityManagerInterface $entityManager): Response
+    {
+
+
+        if ($event->getCreator() !== $this->getUser()) {
+            $this->addFlash('danger', 'Vous n\'êtes pas autorisé à modifier cet événement.');
+            return $this->redirectToRoute('app_event_list');
+        }
+
+        $form = $this->createForm(EventType::class, $event);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager->flush();
+
+            $this->addFlash('success', 'L\'événement a été modifié avec succès.');
+            return $this->redirectToRoute('app_event_list');
+        }
+
+        return $this->render('event/edit.html.twig', [
+            'form' => $form->createView(),
+        ]);
+    }
+
+
+    #[Route('/event/{id}/delete', name: 'app_event_delete', methods: ['POST'])]
+    public function delete(Event $event, EntityManagerInterface $entityManager): Response
+    {
+
+        if ($event->getCreator() !== $this->getUser()) {
+            $this->addFlash('danger', 'Vous n\'êtes pas autorisé à supprimer cet événement.');
+            return $this->redirectToRoute('app_event_list');
+        }
+
+        // Supprimer l'événement de la base de données
+        $entityManager->remove($event);
+        $entityManager->flush();
+
+        $this->addFlash('success', 'L\'événement a été supprimé avec succès.');
+        return $this->redirectToRoute('app_event_list');
+    }
+
+
 
     #[Route('/inscriptions', name: 'app_inscriptions')]
     public function inscriptions(UserInterface $user): Response

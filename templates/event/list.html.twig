@@ -30,7 +30,15 @@
                     <td>{{ event.date|date('d/m/Y H:i') }}</td>
                     <td>{{ event.getParticipantMax() }}</td>
                     <td>
-                        <a class="btn btn-outline-dark btn-sm m-1" href="#">Supprimer</a>
+                        {# If connected user is the creator #}
+                        {% if event.getCreator() == app.user %}
+                            <form action="{{ path('app_event_delete', {'id': event.id}) }}" method="post" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cet événement ?');">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <button type="submit" class="btn btn-danger btn-sm">Supprimer</button>
+                                <a href="{{ path('app_event_edit', {'id': event.id}) }}" class="btn btn-primary btn-sm">Modifier</a>
+                            </form>
+                        {% endif %}
+
                     </td>
                 </tr>
             {% endfor %}
