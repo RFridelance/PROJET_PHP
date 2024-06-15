@@ -79,12 +79,16 @@ class __TwigTemplate_7a85f19798925c7401f91708966f2f27 extends Template
         yield "\">Événements</a>
             </li>
             <li class=\"nav-item\">
-                <a class=\"nav-link\" href=\"#\">Inscription</a>
+                <a class=\"nav-link\" href=\"";
+        // line 28
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_inscriptions");
+        yield "\">Inscription</a>
             </li>
 
         </ul>
-        <ul class=\"navbar-nav ml-auto\">
-            <li class=\"nav-item\">
+        <ul class=\"navbar-nav ml-auto\"> ";
+        // line 33
+        yield "            <li class=\"nav-item\">
                 ";
         // line 34
         if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("IS_AUTHENTICATED_FULLY")) {
@@ -111,8 +115,14 @@ class __TwigTemplate_7a85f19798925c7401f91708966f2f27 extends Template
             yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_register");
             yield "\">Inscription</a>
                 ";
+        } else {
+            // line 44
+            yield "                    <a class=\"nav-link\" href=\"";
+            yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
+            yield "\">Déconnexion</a>
+                ";
         }
-        // line 44
+        // line 46
         yield "            </li>
         </ul>
     </div>
@@ -120,10 +130,10 @@ class __TwigTemplate_7a85f19798925c7401f91708966f2f27 extends Template
 
 <div class=\"container\">
     ";
-        // line 51
+        // line 53
         yield "    ";
         yield from $this->unwrap()->yieldBlock('body', $context, $blocks);
-        // line 52
+        // line 54
         yield "</div>
 </body>
 </html>
@@ -148,7 +158,7 @@ class __TwigTemplate_7a85f19798925c7401f91708966f2f27 extends Template
         return; yield '';
     }
 
-    // line 51
+    // line 53
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -182,7 +192,7 @@ class __TwigTemplate_7a85f19798925c7401f91708966f2f27 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  152 => 51,  138 => 7,  127 => 52,  124 => 51,  116 => 44,  110 => 42,  108 => 41,  104 => 39,  98 => 37,  92 => 35,  90 => 34,  78 => 25,  72 => 22,  61 => 14,  54 => 9,  50 => 7,  43 => 2,);
+        return array (  162 => 53,  148 => 7,  137 => 54,  134 => 53,  126 => 46,  120 => 44,  114 => 42,  112 => 41,  108 => 39,  102 => 37,  96 => 35,  94 => 34,  91 => 33,  84 => 28,  78 => 25,  72 => 22,  61 => 14,  54 => 9,  50 => 7,  43 => 2,);
     }
 
     public function getSourceContext()
@@ -214,11 +224,11 @@ class __TwigTemplate_7a85f19798925c7401f91708966f2f27 extends Template
                 <a class=\"nav-link\" href=\"{{ path('app_event_list') }}\">Événements</a>
             </li>
             <li class=\"nav-item\">
-                <a class=\"nav-link\" href=\"#\">Inscription</a>
+                <a class=\"nav-link\" href=\"{{ path('app_inscriptions') }}\">Inscription</a>
             </li>
 
         </ul>
-        <ul class=\"navbar-nav ml-auto\">
+        <ul class=\"navbar-nav ml-auto\"> {# Ajout de la classe ml-auto ici pour aligner à droite #}
             <li class=\"nav-item\">
                 {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                     <a class=\"nav-link\" href=\"{{ path('app_profile') }}\">Profile</a>
@@ -229,6 +239,8 @@ class __TwigTemplate_7a85f19798925c7401f91708966f2f27 extends Template
             <li class=\"nav-item\">
                 {% if not is_granted('IS_AUTHENTICATED_FULLY') %}
                     <a class=\"nav-link\" href=\"{{ path('app_register') }}\">Inscription</a>
+                {% else %}
+                    <a class=\"nav-link\" href=\"{{ path('app_logout') }}\">Déconnexion</a>
                 {% endif %}
             </li>
         </ul>

@@ -33,7 +33,7 @@ class __TwigTemplate_edc89f5f2c18a1e4cce1aed6c56ae9ba extends Template
 
     protected function doGetParent(array $context)
     {
-        // line 1
+        // line 3
         return "base.html.twig";
     }
 
@@ -43,14 +43,14 @@ class __TwigTemplate_edc89f5f2c18a1e4cce1aed6c56ae9ba extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "accueil/index.html.twig"));
 
-        $this->parent = $this->loadTemplate("base.html.twig", "accueil/index.html.twig", 1);
+        $this->parent = $this->loadTemplate("base.html.twig", "accueil/index.html.twig", 3);
         yield from $this->parent->unwrap()->yield($context, array_merge($this->blocks, $blocks));
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
     }
 
-    // line 3
+    // line 5
     public function block_title($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -64,21 +64,21 @@ class __TwigTemplate_edc89f5f2c18a1e4cce1aed6c56ae9ba extends Template
         return; yield '';
     }
 
-    // line 5
+    // line 7
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 6
+        // line 8
         yield "    <div class=\"jumbotron text-center\">
         <h1 class=\"display-4\">Bienvenue sur Notre Site d'Événements</h1>
         <p class=\"lead\">Découvrez et participez à nos événements passionnants.</p>
         <hr class=\"my-4\">
         <p>Rejoignez-nous pour des expériences inoubliables.</p>
         <a class=\"btn btn-primary btn-lg\" href=\"";
-        // line 11
+        // line 13
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_event_list");
         yield "\" role=\"button\">Voir les Événements</a>
     </div>
@@ -89,7 +89,7 @@ class __TwigTemplate_edc89f5f2c18a1e4cce1aed6c56ae9ba extends Template
                 <h2>Événements à venir</h2>
                 <p>Découvrez nos événements à venir et réservez votre place dès maintenant.</p>
                 <p><a class=\"btn btn-secondary\" href=\"";
-        // line 19
+        // line 21
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_event_list");
         yield "\" role=\"button\">Voir détails &raquo;</a></p>
             </div>
@@ -133,12 +133,14 @@ class __TwigTemplate_edc89f5f2c18a1e4cce1aed6c56ae9ba extends Template
      */
     public function getDebugInfo()
     {
-        return array (  93 => 19,  82 => 11,  75 => 6,  68 => 5,  54 => 3,  37 => 1,);
+        return array (  93 => 21,  82 => 13,  75 => 8,  68 => 7,  54 => 5,  37 => 3,);
     }
 
     public function getSourceContext()
     {
-        return new Source("{% extends 'base.html.twig' %}
+        return new Source("{# templates/accueil/index.html.twig #}
+
+{% extends 'base.html.twig' %}
 
 {% block title %}Accueil - Événements{% endblock %}
 
