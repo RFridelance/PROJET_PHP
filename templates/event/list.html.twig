@@ -12,12 +12,29 @@
             <a class="btn btn-primary" href="{{ path('app_event_new') }}" role="button">Créer un événement</a>
         </div>
 
-        <ul>
+        <table class="table  table-striped table-hover text-center">
+            <thead>
+            <tr>
+                <th scope="col"><i class="bi bi-people"></i> Titre </th>
+                <th scope="col"><i class="bi bi-people"></i> Description </th>
+                <th scope="col"><i class="bi bi-link-45deg"></i> Date </th>
+                <th scope="col"><i class="bi bi-people"></i> nombre de participants max</th>
+                <th scope="col"><i class="bi bi-sliders"></i> actions </th>
+            </tr>
+            </thead>
+            <tbody>
             {% for event in events %}
-                <li>{{ event.title }} - {{ event.date|date('Y-m-d') }}</li>
-            {% else %}
-                <li>Aucun événement trouvé.</li>
+                <tr>
+                    <td> {{ event.title }}</td>
+                    <td> {{ event.description }}</td>
+                    <td> {{ event.date | date() }}</td>
+                    <td> {{ event.getParticipantMax() }}</td>
+                    <td>
+                        <a class="btn btn-outline-dark btn-sm m-1" href=""> Supprimer <i class="bi bi-search"></i></a>
+                    </td>
+                </tr>
             {% endfor %}
-        </ul>
+            </tbody>
+        </table>
     </div>
 {% endblock %}

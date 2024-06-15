@@ -41,8 +41,12 @@ class EventController extends AbstractController
     #[Route('/events', name: 'app_event_list')]
     public function list(EntityManagerInterface $entityManager): Response
     {
-        $events = $entityManager->getRepository(Event::class)->findAll();
-
+        //si user est connecté
+        if ($this->getUser()) {
+            $events = $entityManager->getRepository(Event::class)->findAll();
+        } else {
+            $events = $entityManager->getRepository(Event::class)->findBy(['public' => true]);
+        }
         return $this->render('event/list.html.twig', [
             'events' => $events,
         ]);
