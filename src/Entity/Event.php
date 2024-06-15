@@ -15,7 +15,7 @@ class Event
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $Titre = null;
+    private ?string $Title = null;
 
     #[ORM\Column(length: 1500, nullable: true)]
     private ?string $Description = null;
@@ -24,24 +24,24 @@ class Event
     private ?\DateTimeInterface $Date = null;
 
     #[ORM\Column(nullable: true)]
-    private ?int $Nombre_participants_max = null;
+    private ?int $participant_max = null;
 
     #[ORM\Column]
-    private ?bool $publique = null;
+    private ?bool $public = null;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getTitre(): ?string
+    public function getTitle(): ?string
     {
-        return $this->Titre;
+        return $this->Title;
     }
 
-    public function setTitre(string $Titre): static
+    public function setTitle(string $Title): static
     {
-        $this->Titre = $Titre;
+        $this->Title = $Title;
 
         return $this;
     }
@@ -70,26 +70,26 @@ class Event
         return $this;
     }
 
-    public function getNombreParticipantsMax(): ?int
+    public function getParticipantMax(): ?int
     {
-        return $this->Nombre_participants_max;
+        return $this->participant_max;
     }
 
-    public function setNombreParticipantsMax(?int $Nombre_participants_max): static
+    public function setParticipantMax(?int $participant_max): static
     {
-        $this->Nombre_participants_max = $Nombre_participants_max;
+        $this->participant_max = $participant_max;
 
         return $this;
     }
 
-    public function isPublique(): ?bool
+    public function isPublic(): ?bool
     {
-        return $this->publique;
+        return $this->public;
     }
 
-    public function setPublique(bool $publique): static
+    public function setPublic(bool $public): static
     {
-        $this->publique = $publique;
+        $this->public = $public;
 
         return $this;
     }
