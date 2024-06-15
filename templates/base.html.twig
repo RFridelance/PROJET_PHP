@@ -5,7 +5,6 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}SUPER PROJET{% endblock %}</title>
-    {# Intégration de Bootstrap (exemple avec CDN) #}
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"></script>
 </head>
@@ -22,14 +21,11 @@
                 <a class="nav-link" href="{{ path('app_accueil') }}">Accueil <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ path('app_event') }}">Événements</a>
+                <a class="nav-link" href="{{ path('app_event_list') }}">Événements</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Inscription</a>
             </li>
-
-        </ul>
-        <ul class="navbar-nav ml-auto"> {# Ajout de la classe ml-auto ici pour aligner à droite #}
             <li class="nav-item">
                 <a class="nav-link" href="{{ path('app_profile') }}">Profile</a>
             </li>
@@ -38,7 +34,6 @@
 </nav>
 
 <div class="container">
-    {# Contenu principal de la page #}
     {% block body %}{% endblock %}
 </div>
 </body>
