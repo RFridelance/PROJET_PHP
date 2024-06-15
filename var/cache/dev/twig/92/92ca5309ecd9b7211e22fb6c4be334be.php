@@ -50,7 +50,7 @@ class __TwigTemplate_edc89f5f2c18a1e4cce1aed6c56ae9ba extends Template
 
     }
 
-    // line 4
+    // line 3
     public function block_title($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -64,22 +64,22 @@ class __TwigTemplate_edc89f5f2c18a1e4cce1aed6c56ae9ba extends Template
         return; yield '';
     }
 
-    // line 6
+    // line 5
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 7
+        // line 6
         yield "    <div class=\"jumbotron text-center\">
         <h1 class=\"display-4\">Bienvenue sur Notre Site d'Événements</h1>
         <p class=\"lead\">Découvrez et participez à nos événements passionnants.</p>
         <hr class=\"my-4\">
         <p>Rejoignez-nous pour des expériences inoubliables.</p>
         <a class=\"btn btn-primary btn-lg\" href=\"";
-        // line 12
-        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_event");
+        // line 11
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_event_list");
         yield "\" role=\"button\">Voir les Événements</a>
     </div>
 
@@ -89,8 +89,8 @@ class __TwigTemplate_edc89f5f2c18a1e4cce1aed6c56ae9ba extends Template
                 <h2>Événements à venir</h2>
                 <p>Découvrez nos événements à venir et réservez votre place dès maintenant.</p>
                 <p><a class=\"btn btn-secondary\" href=\"";
-        // line 20
-        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_event");
+        // line 19
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_event_list");
         yield "\" role=\"button\">Voir détails &raquo;</a></p>
             </div>
             <div class=\"col-md-4\">
@@ -133,13 +133,12 @@ class __TwigTemplate_edc89f5f2c18a1e4cce1aed6c56ae9ba extends Template
      */
     public function getDebugInfo()
     {
-        return array (  93 => 20,  82 => 12,  75 => 7,  68 => 6,  54 => 4,  37 => 1,);
+        return array (  93 => 19,  82 => 11,  75 => 6,  68 => 5,  54 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends 'base.html.twig' %}
-
 
 {% block title %}Accueil - Événements{% endblock %}
 
@@ -149,7 +148,7 @@ class __TwigTemplate_edc89f5f2c18a1e4cce1aed6c56ae9ba extends Template
         <p class=\"lead\">Découvrez et participez à nos événements passionnants.</p>
         <hr class=\"my-4\">
         <p>Rejoignez-nous pour des expériences inoubliables.</p>
-        <a class=\"btn btn-primary btn-lg\" href=\"{{ path('app_event') }}\" role=\"button\">Voir les Événements</a>
+        <a class=\"btn btn-primary btn-lg\" href=\"{{ path('app_event_list') }}\" role=\"button\">Voir les Événements</a>
     </div>
 
     <div class=\"container\">
@@ -157,7 +156,7 @@ class __TwigTemplate_edc89f5f2c18a1e4cce1aed6c56ae9ba extends Template
             <div class=\"col-md-4\">
                 <h2>Événements à venir</h2>
                 <p>Découvrez nos événements à venir et réservez votre place dès maintenant.</p>
-                <p><a class=\"btn btn-secondary\" href=\"{{ path('app_event') }}\" role=\"button\">Voir détails &raquo;</a></p>
+                <p><a class=\"btn btn-secondary\" href=\"{{ path('app_event_list') }}\" role=\"button\">Voir détails &raquo;</a></p>
             </div>
             <div class=\"col-md-4\">
                 <h2>À propos de nous</h2>
