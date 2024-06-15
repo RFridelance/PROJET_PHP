@@ -73,25 +73,34 @@ class __TwigTemplate_7a85f19798925c7401f91708966f2f27 extends Template
         yield "\">Accueil <span class=\"sr-only\">(current)</span></a>
             </li>
             <li class=\"nav-item\">
-                <a class=\"nav-link\" href=\"#\">À Propos</a>
+                <a class=\"nav-link\" href=\"";
+        // line 25
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_event");
+        yield "\">Événements</a>
             </li>
             <li class=\"nav-item\">
-                <a class=\"nav-link\" href=\"#\">Services</a>
+                <a class=\"nav-link\" href=\"#\">Inscription</a>
             </li>
-            <li class=\"nav-item\">
-                <a class=\"nav-link\" href=\"#\">Contact</a>
+
+        </ul>
+        <ul class=\"navbar-nav ml-auto\"> ";
+        // line 33
+        yield "            <li class=\"nav-item\">
+                <a class=\"nav-link\" href=\"";
+        // line 34
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_profile");
+        yield "\">Profile</a>
             </li>
         </ul>
-        <!-- Ici, vous pouvez ajouter d'autres éléments de la navbar comme un formulaire de recherche, etc. -->
     </div>
 </nav>
 
 <div class=\"container\">
     ";
-        // line 40
+        // line 42
         yield "    ";
         yield from $this->unwrap()->yieldBlock('body', $context, $blocks);
-        // line 41
+        // line 43
         yield "</div>
 </body>
 </html>
@@ -116,7 +125,7 @@ class __TwigTemplate_7a85f19798925c7401f91708966f2f27 extends Template
         return; yield '';
     }
 
-    // line 40
+    // line 42
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -150,7 +159,7 @@ class __TwigTemplate_7a85f19798925c7401f91708966f2f27 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  120 => 40,  106 => 7,  95 => 41,  92 => 40,  72 => 22,  61 => 14,  54 => 9,  50 => 7,  43 => 2,);
+        return array (  129 => 42,  115 => 7,  104 => 43,  101 => 42,  91 => 34,  88 => 33,  78 => 25,  72 => 22,  61 => 14,  54 => 9,  50 => 7,  43 => 2,);
     }
 
     public function getSourceContext()
@@ -179,16 +188,18 @@ class __TwigTemplate_7a85f19798925c7401f91708966f2f27 extends Template
                 <a class=\"nav-link\" href=\"{{ path('app_accueil') }}\">Accueil <span class=\"sr-only\">(current)</span></a>
             </li>
             <li class=\"nav-item\">
-                <a class=\"nav-link\" href=\"#\">À Propos</a>
+                <a class=\"nav-link\" href=\"{{ path('app_event') }}\">Événements</a>
             </li>
             <li class=\"nav-item\">
-                <a class=\"nav-link\" href=\"#\">Services</a>
+                <a class=\"nav-link\" href=\"#\">Inscription</a>
             </li>
+
+        </ul>
+        <ul class=\"navbar-nav ml-auto\"> {# Ajout de la classe ml-auto ici pour aligner à droite #}
             <li class=\"nav-item\">
-                <a class=\"nav-link\" href=\"#\">Contact</a>
+                <a class=\"nav-link\" href=\"{{ path('app_profile') }}\">Profile</a>
             </li>
         </ul>
-        <!-- Ici, vous pouvez ajouter d'autres éléments de la navbar comme un formulaire de recherche, etc. -->
     </div>
 </nav>
 
