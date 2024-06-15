@@ -17,13 +17,13 @@ final class Version20240615123713 extends AbstractMigration
         return '';
     }
 
-    public function up(Schema $schema): void
+    public function down(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
         $this->addSql('CREATE TABLE user (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, nom VARCHAR(255) NOT NULL, prenom VARCHAR(255) NOT NULL, email VARCHAR(255) NOT NULL, mdp VARCHAR(255) NOT NULL)');
     }
 
-    public function down(Schema $schema): void
+    public function up(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs
         $this->addSql('DROP TABLE user');
