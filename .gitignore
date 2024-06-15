@@ -1,2 +1,8 @@
 # Ignore all files in var/cache/dev
 /var/cache/dev/*
+/vendor/*
+
+###> symfony/phpunit-bridge ###
+.phpunit.result.cache
+/phpunit.xml
+###< symfony/phpunit-bridge ###
