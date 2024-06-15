@@ -18,7 +18,7 @@
                 <th scope="col">Titre</th>
                 <th scope="col">Description</th>
                 <th scope="col">Date</th>
-                <th scope="col">Nombre maximum de participants</th>
+                <th scope="col">Participants</th>
                 <th scope="col">Actions</th>
             </tr>
             </thead>
@@ -28,9 +28,21 @@
                     <td>{{ event.title }}</td>
                     <td>{{ event.description }}</td>
                     <td>{{ event.date|date('d/m/Y H:i') }}</td>
-                    <td>{{ event.getParticipantMax() }}</td>
                     <td>
-                        <a class="btn btn-outline-dark btn-sm m-1" href="#">Supprimer</a>
+                        {{ event.users|length }}/{{ event.participantMax }}
+                        <br>
+                        <small>{{ event.getRemainingPlaces() }} places restantes</small>
+                    </td>
+                    <td>
+                        {% if event.isFull() %}
+                            <span>(Complet)</span>
+                        {% else %}
+                            {% if event.users.contains(app.user) %}
+                                <a class="btn btn-danger btn-sm m-1" href="{{ path('app_event_unsubscribe', {'id': event.id}) }}">Se désinscrire</a>
+                            {% else %}
+                                <a class="btn btn-primary btn-sm m-1" href="{{ path('app_event_subscribe', {'id': event.id}) }}">S'inscrire</a>
+                            {% endif %}
+                        {% endif %}
                     </td>
                 </tr>
             {% endfor %}

@@ -615,23 +615,12 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
     }
 
     /**
-     * @template TValue
-     * @param TValue $value
      * translator configuration
-     * @default {"enabled":false,"fallbacks":[],"logging":false,"formatter":"translator.formatter.default","cache_dir":"%kernel.cache_dir%\/translations","default_path":"%kernel.project_dir%\/translations","paths":[],"pseudo_localization":{"enabled":false,"accents":true,"expansion_factor":1,"brackets":true,"parse_html":false,"localizable_html_attributes":[]},"providers":[]}
-     * @return \Symfony\Config\Framework\TranslatorConfig|$this
-     * @psalm-return (TValue is array ? \Symfony\Config\Framework\TranslatorConfig : static)
-     */
-    public function translator(array $value = []): \Symfony\Config\Framework\TranslatorConfig|static
+     * @default {"enabled":true,"fallbacks":[],"logging":false,"formatter":"translator.formatter.default","cache_dir":"%kernel.cache_dir%\/translations","default_path":"%kernel.project_dir%\/translations","paths":[],"pseudo_localization":{"enabled":false,"accents":true,"expansion_factor":1,"brackets":true,"parse_html":false,"localizable_html_attributes":[]},"providers":[]}
+    */
+    public function translator(array $value = []): \Symfony\Config\Framework\TranslatorConfig
     {
-        if (!\is_array($value)) {
-            $this->_usedProperties['translator'] = true;
-            $this->translator = $value;
-
-            return $this;
-        }
-
-        if (!$this->translator instanceof \Symfony\Config\Framework\TranslatorConfig) {
+        if (null === $this->translator) {
             $this->_usedProperties['translator'] = true;
             $this->translator = new \Symfony\Config\Framework\TranslatorConfig($value);
         } elseif (0 < \func_num_args()) {
@@ -1340,7 +1329,7 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
 
         if (array_key_exists('translator', $value)) {
             $this->_usedProperties['translator'] = true;
-            $this->translator = \is_array($value['translator']) ? new \Symfony\Config\Framework\TranslatorConfig($value['translator']) : $value['translator'];
+            $this->translator = new \Symfony\Config\Framework\TranslatorConfig($value['translator']);
             unset($value['translator']);
         }
 
@@ -1572,7 +1561,7 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
             $output['asset_mapper'] = $this->assetMapper instanceof \Symfony\Config\Framework\AssetMapperConfig ? $this->assetMapper->toArray() : $this->assetMapper;
         }
         if (isset($this->_usedProperties['translator'])) {
-            $output['translator'] = $this->translator instanceof \Symfony\Config\Framework\TranslatorConfig ? $this->translator->toArray() : $this->translator;
+            $output['translator'] = $this->translator->toArray();
         }
         if (isset($this->_usedProperties['validation'])) {
             $output['validation'] = $this->validation->toArray();

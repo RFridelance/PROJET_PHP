@@ -26,10 +26,13 @@ doctrine:
             auto_mapping: true
 
 when@test:
-    doctrine:
-        dbal:
-            # "TEST_TOKEN" is typically set by ParaTest
-            dbname_suffix: '_test%env(default::TEST_TOKEN)%'
+        doctrine:
+            dbal:
+                url: '%env(resolve:DATABASE_URL)%'
+                # configure these for your database server
+                driver: 'pdo_mysql'
+                charset: utf8mb4
+
 
 when@prod:
     doctrine:

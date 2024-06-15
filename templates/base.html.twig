@@ -1,5 +1,3 @@
-{# templates/base.html.twig #}
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,11 +5,13 @@
     <title>{% block title %}SUPER PROJET{% endblock %}</title>
     {# Intégration de Bootstrap (exemple avec CDN) #}
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"></script>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="{{ path('app_accueil') }}">SUPER CONFERENCE</a>
+    <a class="navbar-brand" href="{{ path('app_accueil') }}">Mon Projet Symfony</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -25,41 +25,33 @@
                 <a class="nav-link" href="{{ path('app_event_list') }}">Événements</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ path('app_inscriptions') }}">Inscription</a>
-            </li>
-
-        </ul>
-        <ul class="navbar-nav ml-auto"> {# Ajout de la classe ml-auto ici pour aligner à droite #}
-            <li class="nav-item">
-                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                    <a class="nav-link" href="{{ path('app_profile') }}">Profile</a>
-                {% else %}
-                    <a class="nav-link" href="{{ path('app_login') }}">Connexion</a>
-                {% endif %}
+                <a class="nav-link" href="#">Inscription</a>
             </li>
             <li class="nav-item">
-                {% if not is_granted('IS_AUTHENTICATED_FULLY') %}
-                    <a class="nav-link" href="{{ path('app_register') }}">Inscription</a>
-                {% else %}
-                    <a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a>
-                {% endif %}
+                <a class="nav-link" href="{{ path('app_profile') }}">Profile</a>
             </li>
         </ul>
     </div>
 </nav>
 
 <div class="container">
-    {# Affichage des messages flash #}
-    {% for label, messages in app.flashes %}
-        <div class="alert alert-{{ label }}">
-            {% for message in messages %}
-                <p>{{ message }}</p>
-            {% endfor %}
-        </div>
-    {% endfor %}
-
     {# Contenu principal de la page #}
     {% block body %}{% endblock %}
 </div>
+
+{# Affichage des messages flash avec SweetAlert #}
+<script>
+    {% for label, messages in app.flashes %}
+    {% for message in messages %}
+    Swal.fire({
+        icon: '{{ label }}',
+        title: '{{ label|capitalize }}',
+        text: '{{ message }}',
+        timer: 5000,
+        showConfirmButton: false
+    });
+    {% endfor %}
+    {% endfor %}
+</script>
 </body>
 </html>

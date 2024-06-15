@@ -130,4 +130,15 @@ class Event
 
         return $this;
     }
+
+    public function isFull(): bool
+    {
+        return $this->users->count() >= $this->participant_max;
+    }
+
+    public function getRemainingPlaces(): int
+    {
+        return $this->participant_max - $this->users->count();
+    }
+
 }
