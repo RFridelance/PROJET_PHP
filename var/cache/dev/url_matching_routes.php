@@ -11,6 +11,7 @@ return [
         '/' => [[['_route' => 'app_accueil', '_controller' => 'App\\Controller\\AccueilController::index'], null, null, null, false, false, null]],
         '/event/new' => [[['_route' => 'app_event_new', '_controller' => 'App\\Controller\\EventController::new'], null, null, null, false, false, null]],
         '/events' => [[['_route' => 'app_event_list', '_controller' => 'App\\Controller\\EventController::list'], null, null, null, false, false, null]],
+        '/inscriptions' => [[['_route' => 'app_inscriptions', '_controller' => 'App\\Controller\\EventController::inscriptions'], null, null, null, false, false, null]],
         '/profile' => [[['_route' => 'app_profile', '_controller' => 'App\\Controller\\ProfileController::index'], null, null, null, false, false, null]],
         '/register' => [[['_route' => 'app_register', '_controller' => 'App\\Controller\\RegistrationController::register'], null, null, null, false, false, null]],
         '/login' => [[['_route' => 'app_login', '_controller' => 'App\\Controller\\SecurityController::login'], null, null, null, false, false, null]],

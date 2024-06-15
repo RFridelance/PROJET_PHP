@@ -1,0 +1,19 @@
+{# templates/event/inscriptions.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscriptions{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <h1>Liste des événements auxquels vous êtes inscrit</h1>
+
+        <ul>
+            {% for event in events %}
+                <li>{{ event.Title }} - {{ event.Date|date('Y-m-d') }}</li>
+            {% else %}
+                <li>Vous n'êtes inscrit à aucun événement.</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

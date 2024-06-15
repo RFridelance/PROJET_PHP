@@ -25,11 +25,11 @@
                 <a class="nav-link" href="{{ path('app_event_list') }}">Événements</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Inscription</a>
+                <a class="nav-link" href="{{ path('app_inscriptions') }}">Inscription</a>
             </li>
 
         </ul>
-        <ul class="navbar-nav ml-auto">
+        <ul class="navbar-nav ml-auto"> {# Ajout de la classe ml-auto ici pour aligner à droite #}
             <li class="nav-item">
                 {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                     <a class="nav-link" href="{{ path('app_profile') }}">Profile</a>

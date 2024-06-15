@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 class EventController extends AbstractController
 {
@@ -39,6 +40,16 @@ class EventController extends AbstractController
         $events = $entityManager->getRepository(Event::class)->findAll();
 
         return $this->render('event/list.html.twig', [
+            'events' => $events,
+        ]);
+    }
+
+    #[Route('/inscriptions', name: 'app_inscriptions')]
+    public function inscriptions(UserInterface $user): Response
+    {
+        $events = $user->getEvents();
+
+        return $this->render('event/inscriptions.html.twig', [
             'events' => $events,
         ]);
     }
