@@ -1,5 +1,3 @@
-{# templates/event/new.html.twig #}
-
 {% extends 'base.html.twig' %}
 
 {% block title %}Créer Événement{% endblock %}
@@ -8,13 +6,34 @@
     <div class="container mt-5">
         <h1>Créer un nouvel événement</h1>
 
-        {{ form_start(form) }}
-        {{ form_row(form.title) }}
-        {{ form_row(form.description) }}
-        {{ form_row(form.date) }}
-        {{ form_row(form.participant_max) }}
-        {{ form_row(form.public) }}
-        {{ form_row(form.save) }}
+        {{ form_start(form, {'attr': {'class': 'form'}}) }}
+        <div class="form-group">
+            {{ form_label(form.title, 'Titre de l\'événement', {'label_attr': {'class': 'font-weight-bold'}}) }}
+            {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(form.title) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.description, 'Description de l\'événement', {'label_attr': {'class': 'font-weight-bold'}}) }}
+            {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(form.description) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.date, 'Date de l\'événement', {'label_attr': {'class': 'font-weight-bold'}}) }}
+            {{ form_widget(form.date, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(form.date) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.participant_max, 'Nombre maximum de participants', {'label_attr': {'class': 'font-weight-bold'}}) }}
+            {{ form_widget(form.participant_max, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(form.participant_max) }}
+        </div>
+        <div class="form-check mb-3">
+            {{ form_widget(form.public, {'attr': {'class': 'form-check-input'}}) }}
+            {{ form_label(form.public, 'Événement public', {'label_attr': {'class': 'form-check-label'}}) }}
+        </div>
+        <button class="btn btn-lg btn-primary" type="submit">
+            Ajouter
+        </button>
         {{ form_end(form) }}
     </div>
 {% endblock %}

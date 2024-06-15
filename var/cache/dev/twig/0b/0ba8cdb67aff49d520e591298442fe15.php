@@ -132,8 +132,41 @@ class __TwigTemplate_7a85f19798925c7401f91708966f2f27 extends Template
     ";
         // line 53
         yield "    ";
+        $context['_parent'] = $context;
+        $context['_seq'] = CoreExtension::ensureTraversable(CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 53, $this->source); })()), "flashes", [], "any", false, false, false, 53));
+        foreach ($context['_seq'] as $context["label"] => $context["messages"]) {
+            // line 54
+            yield "        <div class=\"alert alert-";
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($context["label"], "html", null, true);
+            yield "\">
+            ";
+            // line 55
+            $context['_parent'] = $context;
+            $context['_seq'] = CoreExtension::ensureTraversable($context["messages"]);
+            foreach ($context['_seq'] as $context["_key"] => $context["message"]) {
+                // line 56
+                yield "                <p>";
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($context["message"], "html", null, true);
+                yield "</p>
+            ";
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['message'], $context['_parent'], $context['loop']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 58
+            yield "        </div>
+    ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['label'], $context['messages'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 60
+        yield "
+    ";
+        // line 62
+        yield "    ";
         yield from $this->unwrap()->yieldBlock('body', $context, $blocks);
-        // line 54
+        // line 63
         yield "</div>
 </body>
 </html>
@@ -158,7 +191,7 @@ class __TwigTemplate_7a85f19798925c7401f91708966f2f27 extends Template
         return; yield '';
     }
 
-    // line 53
+    // line 62
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -192,7 +225,7 @@ class __TwigTemplate_7a85f19798925c7401f91708966f2f27 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  162 => 53,  148 => 7,  137 => 54,  134 => 53,  126 => 46,  120 => 44,  114 => 42,  112 => 41,  108 => 39,  102 => 37,  96 => 35,  94 => 34,  91 => 33,  84 => 28,  78 => 25,  72 => 22,  61 => 14,  54 => 9,  50 => 7,  43 => 2,);
+        return array (  195 => 62,  181 => 7,  170 => 63,  167 => 62,  164 => 60,  157 => 58,  148 => 56,  144 => 55,  139 => 54,  134 => 53,  126 => 46,  120 => 44,  114 => 42,  112 => 41,  108 => 39,  102 => 37,  96 => 35,  94 => 34,  91 => 33,  84 => 28,  78 => 25,  72 => 22,  61 => 14,  54 => 9,  50 => 7,  43 => 2,);
     }
 
     public function getSourceContext()
@@ -248,6 +281,15 @@ class __TwigTemplate_7a85f19798925c7401f91708966f2f27 extends Template
 </nav>
 
 <div class=\"container\">
+    {# Affichage des messages flash #}
+    {% for label, messages in app.flashes %}
+        <div class=\"alert alert-{{ label }}\">
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        </div>
+    {% endfor %}
+
     {# Contenu principal de la page #}
     {% block body %}{% endblock %}
 </div>

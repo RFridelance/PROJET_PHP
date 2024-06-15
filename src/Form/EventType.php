@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Form;
 
 use App\Entity\Event;
@@ -12,6 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\GreaterThanOrEqual;
 
 class EventType extends AbstractType
 {
@@ -27,6 +27,12 @@ class EventType extends AbstractType
             ->add('date', DateType::class, [
                 'widget' => 'single_text',
                 'label' => 'Date de l\'événement',
+                'constraints' => [
+                    new GreaterThanOrEqual([
+                        'value' => 'today',
+                        'message' => 'La date de l\'événement doit être égale ou supérieure à aujourd\'hui.',
+                    ]),
+                ],
             ])
             ->add('participant_max', IntegerType::class, [
                 'label' => 'Nombre maximum de participants',
@@ -34,9 +40,6 @@ class EventType extends AbstractType
             ->add('public', CheckboxType::class, [
                 'label' => 'Événement public',
                 'required' => false,
-            ])
-            ->add('save', SubmitType::class, [
-                'label' => 'Créer l\'événement',
             ])
         ;
     }

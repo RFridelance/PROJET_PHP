@@ -22,11 +22,15 @@ class EventController extends AbstractController
 
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->persist($event);
-            $entityManager->flush();
+        if ($form->isSubmitted()) {
+            if ($form->isValid()) {
+                $entityManager->persist($event);
+                $entityManager->flush();
 
-            return $this->redirectToRoute('app_event_list');
+                return $this->redirectToRoute('app_event_list');
+            } else {
+                $this->addFlash('danger', 'Le formulaire contient des erreurs. Veuillez les corriger.');
+            }
         }
 
         return $this->render('event/new.html.twig', [
