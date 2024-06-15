@@ -102,6 +102,27 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/psr/http-message" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/ralouphie/getallheaders" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/translation" />
+      <excludeFolder url="file://$MODULE_DIR$/var/cache/dev/ContainerAGxSQwm" />
+      <excludeFolder url="file://$MODULE_DIR$/var/cache/dev/ContainerLHJDwFG" />
+      <excludeFolder url="file://$MODULE_DIR$/var/cache/dev/Symfony/Config/KnpPaginator" />
+      <excludeFolder url="file://$MODULE_DIR$/var/cache/dev/translations" />
+      <excludeFolder url="file://$MODULE_DIR$/var/cache/dev/twig" />
+      <excludeFolder url="file://$MODULE_DIR$/var/cache/dev/twig/0c" />
+      <excludeFolder url="file://$MODULE_DIR$/var/cache/dev/twig/6b" />
+      <excludeFolder url="file://$MODULE_DIR$/var/cache/dev/twig/ac" />
+      <excludeFolder url="file://$MODULE_DIR$/var/cache/dev/twig/c2" />
+      <excludeFolder url="file://$MODULE_DIR$/var/cache/dev/twig/d5" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/bin/.phpunit" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/guzzlehttp" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/knplabs" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/mailjet" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/masterminds" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/ralouphie" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/browser-kit" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/css-selector" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/dom-crawler" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/phpunit-bridge" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfonycasts" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
