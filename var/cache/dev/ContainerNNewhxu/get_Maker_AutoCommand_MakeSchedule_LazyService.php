@@ -21,6 +21,6 @@ class get_Maker_AutoCommand_MakeSchedule_LazyService extends App_KernelDevDebugC
         include_once \dirname(__DIR__, 4).'/vendor/symfony/console/Command/Command.php';
         include_once \dirname(__DIR__, 4).'/vendor/symfony/console/Command/LazyCommand.php';
 
-        return $container->privates['.maker.auto_command.make_schedule.lazy'] = new \Symfony\Component\Console\Command\LazyCommand('make:schedule', [], 'Create a scheduler component', false, #[\Closure(name: 'maker.auto_command.make_schedule', class: 'Symfony\\Bundle\\MakerBundle\\Command\\MakerCommand')] fn (): \Symfony\Bundle\MakerBundle\Command\MakerCommand => ($container->privates['maker.auto_command.make_schedule'] ?? $container->load('getMaker_AutoCommand_MakeScheduleService')));
+        return $container->privates['.maker.auto_command.make_schedule.lazy'] = new \Symfony\Component\Console\Command\LazyCommand('make:schedule', [], 'Create a scheduler components', false, #[\Closure(name: 'maker.auto_command.make_schedule', class: 'Symfony\\Bundle\\MakerBundle\\Command\\MakerCommand')] fn (): \Symfony\Bundle\MakerBundle\Command\MakerCommand => ($container->privates['maker.auto_command.make_schedule'] ?? $container->load('getMaker_AutoCommand_MakeScheduleService')));
     }
 }

@@ -22,6 +22,6 @@ class get_Debug_ValueResolver_ArgumentResolver_RequestPayloadService extends App
         include_once \dirname(__DIR__, 4).'/vendor/symfony/http-kernel/Controller/ArgumentResolver/TraceableValueResolver.php';
         include_once \dirname(__DIR__, 4).'/vendor/symfony/http-kernel/Controller/ArgumentResolver/RequestPayloadValueResolver.php';
 
-        return $container->privates['.debug.value_resolver.argument_resolver.request_payload'] = new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\TraceableValueResolver(throw new RuntimeException('You can neither use "#[MapRequestPayload]" nor "#[MapQueryString]" since the Serializer component is not installed. Try running "composer require symfony/serializer-pack".'), ($container->services['debug.stopwatch'] ??= new \Symfony\Component\Stopwatch\Stopwatch(true)));
+        return $container->privates['.debug.value_resolver.argument_resolver.request_payload'] = new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\TraceableValueResolver(throw new RuntimeException('You can neither use "#[MapRequestPayload]" nor "#[MapQueryString]" since the Serializer components is not installed. Try running "composer require symfony/serializer-pack".'), ($container->services['debug.stopwatch'] ??= new \Symfony\Component\Stopwatch\Stopwatch(true)));
     }
 }

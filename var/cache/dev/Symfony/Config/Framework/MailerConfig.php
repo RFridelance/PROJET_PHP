@@ -35,7 +35,7 @@ class MailerConfig
     }
 
     /**
-     * The message bus to use. Defaults to the default bus if the Messenger component is installed.
+     * The message bus to use. Defaults to the default bus if the Messenger components is installed.
      * @default null
      * @param ParamConfigurator|mixed $value
      * @return $this
