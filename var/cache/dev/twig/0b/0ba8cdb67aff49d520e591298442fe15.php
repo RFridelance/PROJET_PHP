@@ -29,8 +29,6 @@ class __TwigTemplate_7a85f19798925c7401f91708966f2f27 extends Template
 
         $this->blocks = [
             'title' => [$this, 'block_title'],
-            'stylesheets' => [$this, 'block_stylesheets'],
-            'javascripts' => [$this, 'block_javascripts'],
             'body' => [$this, 'block_body'],
         ];
     }
@@ -41,32 +39,61 @@ class __TwigTemplate_7a85f19798925c7401f91708966f2f27 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "base.html.twig"));
 
-        // line 1
-        yield "<!DOCTYPE html>
+        // line 2
+        yield "
+<!DOCTYPE html>
 <html>
-    <head>
-        <meta charset=\"UTF-8\">
-        <title>";
-        // line 5
+<head>
+    <meta charset=\"UTF-8\">
+    <title>";
+        // line 7
         yield from $this->unwrap()->yieldBlock('title', $context, $blocks);
         yield "</title>
-        <link rel=\"icon\" href=\"data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>\">
-        ";
-        // line 7
-        yield from $this->unwrap()->yieldBlock('stylesheets', $context, $blocks);
+    ";
         // line 9
-        yield "
-        ";
-        // line 10
-        yield from $this->unwrap()->yieldBlock('javascripts', $context, $blocks);
-        // line 12
-        yield "    </head>
-    <body>
-        ";
+        yield "    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css\">
+    <script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js\" integrity=\"sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z\" crossorigin=\"anonymous\"></script>
+</head>
+<body>
+<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">
+    <a class=\"navbar-brand\" href=\"";
         // line 14
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_accueil");
+        yield "\">Mon Projet Symfony</a>
+    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
+        <span class=\"navbar-toggler-icon\"></span>
+    </button>
+
+    <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">
+        <ul class=\"navbar-nav mr-auto\">
+            <li class=\"nav-item active\">
+                <a class=\"nav-link\" href=\"";
+        // line 22
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_accueil");
+        yield "\">Accueil <span class=\"sr-only\">(current)</span></a>
+            </li>
+            <li class=\"nav-item\">
+                <a class=\"nav-link\" href=\"#\">À Propos</a>
+            </li>
+            <li class=\"nav-item\">
+                <a class=\"nav-link\" href=\"#\">Services</a>
+            </li>
+            <li class=\"nav-item\">
+                <a class=\"nav-link\" href=\"#\">Contact</a>
+            </li>
+        </ul>
+        <!-- Ici, vous pouvez ajouter d'autres éléments de la navbar comme un formulaire de recherche, etc. -->
+    </div>
+</nav>
+
+<div class=\"container\">
+    ";
+        // line 40
+        yield "    ";
         yield from $this->unwrap()->yieldBlock('body', $context, $blocks);
-        // line 15
-        yield "    </body>
+        // line 41
+        yield "</div>
+</body>
 </html>
 ";
         
@@ -75,51 +102,21 @@ class __TwigTemplate_7a85f19798925c7401f91708966f2f27 extends Template
         return; yield '';
     }
 
-    // line 5
+    // line 7
     public function block_title($context, array $blocks = [])
     {
         $macros = $this->macros;
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        yield "Welcome!";
+        yield "SUPER PROJET";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
         return; yield '';
     }
 
-    // line 7
-    public function block_stylesheets($context, array $blocks = [])
-    {
-        $macros = $this->macros;
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheets"));
-
-        // line 8
-        yield "        ";
-        
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
-
-        return; yield '';
-    }
-
-    // line 10
-    public function block_javascripts($context, array $blocks = [])
-    {
-        $macros = $this->macros;
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
-
-        // line 11
-        yield "        ";
-        
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
-
-        return; yield '';
-    }
-
-    // line 14
+    // line 40
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -143,29 +140,64 @@ class __TwigTemplate_7a85f19798925c7401f91708966f2f27 extends Template
     /**
      * @codeCoverageIgnore
      */
+    public function isTraitable()
+    {
+        return false;
+    }
+
+    /**
+     * @codeCoverageIgnore
+     */
     public function getDebugInfo()
     {
-        return array (  123 => 14,  115 => 11,  108 => 10,  100 => 8,  93 => 7,  79 => 5,  69 => 15,  67 => 14,  63 => 12,  61 => 10,  58 => 9,  56 => 7,  51 => 5,  45 => 1,);
+        return array (  120 => 40,  106 => 7,  95 => 41,  92 => 40,  72 => 22,  61 => 14,  54 => 9,  50 => 7,  43 => 2,);
     }
 
     public function getSourceContext()
     {
-        return new Source("<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset=\"UTF-8\">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel=\"icon\" href=\"data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>\">
-        {% block stylesheets %}
-        {% endblock %}
+        return new Source("{# templates/base.html.twig #}
 
-        {% block javascripts %}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=\"UTF-8\">
+    <title>{% block title %}SUPER PROJET{% endblock %}</title>
+    {# Intégration de Bootstrap (exemple avec CDN) #}
+    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css\">
+    <script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js\" integrity=\"sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z\" crossorigin=\"anonymous\"></script>
+</head>
+<body>
+<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">
+    <a class=\"navbar-brand\" href=\"{{ path('app_accueil') }}\">Mon Projet Symfony</a>
+    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
+        <span class=\"navbar-toggler-icon\"></span>
+    </button>
+
+    <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">
+        <ul class=\"navbar-nav mr-auto\">
+            <li class=\"nav-item active\">
+                <a class=\"nav-link\" href=\"{{ path('app_accueil') }}\">Accueil <span class=\"sr-only\">(current)</span></a>
+            </li>
+            <li class=\"nav-item\">
+                <a class=\"nav-link\" href=\"#\">À Propos</a>
+            </li>
+            <li class=\"nav-item\">
+                <a class=\"nav-link\" href=\"#\">Services</a>
+            </li>
+            <li class=\"nav-item\">
+                <a class=\"nav-link\" href=\"#\">Contact</a>
+            </li>
+        </ul>
+        <!-- Ici, vous pouvez ajouter d'autres éléments de la navbar comme un formulaire de recherche, etc. -->
+    </div>
+</nav>
+
+<div class=\"container\">
+    {# Contenu principal de la page #}
+    {% block body %}{% endblock %}
+</div>
+</body>
 </html>
-", "base.html.twig", "/home/alvann/PHP/Cours/TD1/templates/base.html.twig");
+", "base.html.twig", "/home/alvann/PhpstormProjects/Projet/templates/base.html.twig");
     }
 }

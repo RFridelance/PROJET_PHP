@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services https://symfony.com/schema/dic/services/services-1.0.xsd">
   <parameters>
-    <parameter key="kernel.project_dir">/home/alvann/PHP/Cours/TD1</parameter>
+    <parameter key="kernel.project_dir">/home/alvann/PhpstormProjects/Projet</parameter>
     <parameter key="kernel.environment">dev</parameter>
     <parameter key="kernel.runtime_environment">%env(default:kernel.environment:APP_RUNTIME_ENV)%</parameter>
     <parameter key="kernel.runtime_mode">%env(query_string:default:container.runtime_mode:APP_RUNTIME_MODE)%</parameter>
@@ -9,9 +9,9 @@
     <parameter key="kernel.runtime_mode.cli">%env(not:default:kernel.runtime_mode.web:)%</parameter>
     <parameter key="kernel.runtime_mode.worker">%env(bool:default::key:worker:default:kernel.runtime_mode:)%</parameter>
     <parameter key="kernel.debug">true</parameter>
-    <parameter key="kernel.build_dir">/home/alvann/PHP/Cours/TD1/var/cache/dev</parameter>
-    <parameter key="kernel.cache_dir">/home/alvann/PHP/Cours/TD1/var/cache/dev</parameter>
-    <parameter key="kernel.logs_dir">/home/alvann/PHP/Cours/TD1/var/log</parameter>
+    <parameter key="kernel.build_dir">/home/alvann/PhpstormProjects/Projet/var/cache/dev</parameter>
+    <parameter key="kernel.cache_dir">/home/alvann/PhpstormProjects/Projet/var/cache/dev</parameter>
+    <parameter key="kernel.logs_dir">/home/alvann/PhpstormProjects/Projet/var/log</parameter>
     <parameter key="kernel.bundles" type="collection">
       <parameter key="FrameworkBundle">Symfony\Bundle\FrameworkBundle\FrameworkBundle</parameter>
       <parameter key="MakerBundle">Symfony\Bundle\MakerBundle\MakerBundle</parameter>
@@ -23,31 +23,31 @@
     </parameter>
     <parameter key="kernel.bundles_metadata" type="collection">
       <parameter key="FrameworkBundle" type="collection">
-        <parameter key="path">/home/alvann/PHP/Cours/TD1/vendor/symfony/framework-bundle</parameter>
+        <parameter key="path">/home/alvann/PhpstormProjects/Projet/vendor/symfony/framework-bundle</parameter>
         <parameter key="namespace">Symfony\Bundle\FrameworkBundle</parameter>
       </parameter>
       <parameter key="MakerBundle" type="collection">
-        <parameter key="path">/home/alvann/PHP/Cours/TD1/vendor/symfony/maker-bundle/src</parameter>
+        <parameter key="path">/home/alvann/PhpstormProjects/Projet/vendor/symfony/maker-bundle/src</parameter>
         <parameter key="namespace">Symfony\Bundle\MakerBundle</parameter>
       </parameter>
       <parameter key="DoctrineBundle" type="collection">
-        <parameter key="path">/home/alvann/PHP/Cours/TD1/vendor/doctrine/doctrine-bundle</parameter>
+        <parameter key="path">/home/alvann/PhpstormProjects/Projet/vendor/doctrine/doctrine-bundle</parameter>
         <parameter key="namespace">Doctrine\Bundle\DoctrineBundle</parameter>
       </parameter>
       <parameter key="DoctrineMigrationsBundle" type="collection">
-        <parameter key="path">/home/alvann/PHP/Cours/TD1/vendor/doctrine/doctrine-migrations-bundle</parameter>
+        <parameter key="path">/home/alvann/PhpstormProjects/Projet/vendor/doctrine/doctrine-migrations-bundle</parameter>
         <parameter key="namespace">Doctrine\Bundle\MigrationsBundle</parameter>
       </parameter>
       <parameter key="TwigBundle" type="collection">
-        <parameter key="path">/home/alvann/PHP/Cours/TD1/vendor/symfony/twig-bundle</parameter>
+        <parameter key="path">/home/alvann/PhpstormProjects/Projet/vendor/symfony/twig-bundle</parameter>
         <parameter key="namespace">Symfony\Bundle\TwigBundle</parameter>
       </parameter>
       <parameter key="DoctrineFixturesBundle" type="collection">
-        <parameter key="path">/home/alvann/PHP/Cours/TD1/vendor/doctrine/doctrine-fixtures-bundle</parameter>
+        <parameter key="path">/home/alvann/PhpstormProjects/Projet/vendor/doctrine/doctrine-fixtures-bundle</parameter>
         <parameter key="namespace">Doctrine\Bundle\FixturesBundle</parameter>
       </parameter>
       <parameter key="SecurityBundle" type="collection">
-        <parameter key="path">/home/alvann/PHP/Cours/TD1/vendor/symfony/security-bundle</parameter>
+        <parameter key="path">/home/alvann/PhpstormProjects/Projet/vendor/symfony/security-bundle</parameter>
         <parameter key="namespace">Symfony\Bundle\SecurityBundle</parameter>
       </parameter>
     </parameter>
@@ -86,15 +86,15 @@
     <parameter key="kernel.error_controller">error_controller</parameter>
     <parameter key="debug.file_link_format">%env(default::SYMFONY_IDE)%</parameter>
     <parameter key="debug.error_handler.throw_at">-1</parameter>
-    <parameter key="debug.container.dump">/home/alvann/PHP/Cours/TD1/var/cache/dev/App_KernelDevDebugContainer.xml</parameter>
+    <parameter key="debug.container.dump">/home/alvann/PhpstormProjects/Projet/var/cache/dev/App_KernelDevDebugContainer.xml</parameter>
     <parameter key="router.request_context.host">localhost</parameter>
     <parameter key="router.request_context.scheme">http</parameter>
     <parameter key="router.request_context.base_url"></parameter>
     <parameter key="router.resource">kernel::loadRoutes</parameter>
-    <parameter key="router.cache_dir">/home/alvann/PHP/Cours/TD1/var/cache/dev</parameter>
+    <parameter key="router.cache_dir">/home/alvann/PhpstormProjects/Projet/var/cache/dev</parameter>
     <parameter key="request_listener.http_port">80</parameter>
     <parameter key="request_listener.https_port">443</parameter>
-    <parameter key="cache.prefix.seed">_/home/alvann/PHP/Cours/TD1.App_KernelDevDebugContainer</parameter>
+    <parameter key="cache.prefix.seed">_/home/alvann/PhpstormProjects/Projet.App_KernelDevDebugContainer</parameter>
     <parameter key="session.metadata.storage_key">_sf2_meta</parameter>
     <parameter key="session.storage.options" type="collection">
       <parameter key="cache_limiter" type="string">0</parameter>
@@ -107,7 +107,7 @@
     <parameter key="session.metadata.update_threshold">0</parameter>
     <parameter key="form.type_extension.csrf.enabled">true</parameter>
     <parameter key="form.type_extension.csrf.field_name">_token</parameter>
-    <parameter key="validator.mapping.cache.file">/home/alvann/PHP/Cours/TD1/var/cache/dev/validation.php</parameter>
+    <parameter key="validator.mapping.cache.file">/home/alvann/PhpstormProjects/Projet/var/cache/dev/validation.php</parameter>
     <parameter key="validator.translation_domain">validators</parameter>
     <parameter key="data_collector.templates" type="collection"/>
     <parameter key="doctrine.dbal.configuration.class">Doctrine\DBAL\Configuration</parameter>
@@ -174,14 +174,14 @@
     <parameter key="doctrine.orm.second_level_cache.regions_configuration.class">Doctrine\ORM\Cache\RegionsConfiguration</parameter>
     <parameter key="doctrine.orm.auto_generate_proxy_classes">true</parameter>
     <parameter key="doctrine.orm.enable_lazy_ghost_objects">true</parameter>
-    <parameter key="doctrine.orm.proxy_dir">/home/alvann/PHP/Cours/TD1/var/cache/dev/doctrine/orm/Proxies</parameter>
+    <parameter key="doctrine.orm.proxy_dir">/home/alvann/PhpstormProjects/Projet/var/cache/dev/doctrine/orm/Proxies</parameter>
     <parameter key="doctrine.orm.proxy_namespace">Proxies</parameter>
     <parameter key="doctrine.migrations.preferred_em">null</parameter>
     <parameter key="doctrine.migrations.preferred_connection">null</parameter>
     <parameter key="twig.form.resources" type="collection">
       <parameter>form_div_layout.html.twig</parameter>
     </parameter>
-    <parameter key="twig.default_path">/home/alvann/PHP/Cours/TD1/templates</parameter>
+    <parameter key="twig.default_path">/home/alvann/PhpstormProjects/Projet/templates</parameter>
     <parameter key="security.role_hierarchy.roles" type="collection"/>
     <parameter key="security.access.denied_url">null</parameter>
     <parameter key="security.authentication.manager.erase_credentials">true</parameter>
@@ -203,49 +203,28 @@
     <service id="App\Entity" class="App\Entity" abstract="true">
       <tag name="container.excluded" source="in &quot;config/services.yaml&quot;"/>
     </service>
-    <service id="App\Controller\ListUserController" class="App\Controller\ListUserController" public="true" autowire="true" autoconfigure="true">
+    <service id="App\Controller\AccueilController" class="App\Controller\AccueilController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.jUv.zyj.App\Controller\ListUserController"/>
+        <argument type="service" id=".service_locator.jUv.zyj.App\Controller\AccueilController"/>
       </call>
     </service>
-    <service id="App\Controller\ProductController" class="App\Controller\ProductController" public="true" autowire="true" autoconfigure="true">
-      <tag name="controller.service_arguments"/>
-      <tag name="container.service_subscriber"/>
-      <argument type="service" id="doctrine.orm.default_entity_manager"/>
-      <call method="setContainer">
-        <argument type="service" id=".service_locator.jUv.zyj.App\Controller\ProductController"/>
-      </call>
-    </service>
-    <service id="App\Controller\UserController" class="App\Controller\UserController" public="true" autowire="true" autoconfigure="true">
+    <service id="App\Controller\EventController" class="App\Controller\EventController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.jUv.zyj.App\Controller\UserController"/>
+        <argument type="service" id=".service_locator.jUv.zyj.App\Controller\EventController"/>
       </call>
     </service>
-    <service id="App\Controller\UserControllerTest" class="App\Controller\UserControllerTest" public="true" autowire="true" autoconfigure="true">
+    <service id="App\Controller\ProfileController" class="App\Controller\ProfileController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.jUv.zyj.App\Controller\UserControllerTest"/>
+        <argument type="service" id=".service_locator.jUv.zyj.App\Controller\ProfileController"/>
       </call>
     </service>
-    <service id="App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" autoconfigure="true">
-      <tag name="doctrine.fixture.orm"/>
-    </service>
-    <service id="App\DataFixtures\ProductFixtures" class="App\DataFixtures\ProductFixtures" autowire="true" autoconfigure="true">
-      <tag name="doctrine.fixture.orm"/>
-    </service>
-    <service id="App\Form\ProductType" class="App\Form\ProductType" autowire="true" autoconfigure="true">
-      <tag name="form.type"/>
-    </service>
-    <service id="App\Repository\CustomerRepository" class="App\Repository\CustomerRepository" autowire="true" autoconfigure="true">
-      <tag name="doctrine.repository_service"/>
-      <argument type="service" id="doctrine"/>
-    </service>
-    <service id="App\Repository\ProductRepository" class="App\Repository\ProductRepository" autowire="true" autoconfigure="true">
+    <service id="App\Repository\UserRepository" class="App\Repository\UserRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
@@ -272,7 +251,7 @@
     </service>
     <service id="argument_resolver.service" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
       <tag priority="-50" name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">controller.argument_value_resolver</tag>
-      <argument type="service" id=".service_locator.yrZtgZ0"/>
+      <argument type="service" id=".service_locator.L.EDYUC"/>
     </service>
     <service id="argument_resolver.default" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver">
       <tag priority="-100" name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver">controller.argument_value_resolver</tag>
@@ -353,7 +332,7 @@
       </argument>
     </service>
     <service id="http_cache.store" class="Symfony\Component\HttpKernel\HttpCache\Store">
-      <argument>/home/alvann/PHP/Cours/TD1/var/cache/dev/http_cache</argument>
+      <argument>/home/alvann/PhpstormProjects/Projet/var/cache/dev/http_cache</argument>
     </service>
     <service id="url_helper" class="Symfony\Component\HttpFoundation\UrlHelper">
       <argument type="service" id="request_stack"/>
@@ -363,7 +342,7 @@
       <tag name="container.no_preload"/>
       <argument type="tagged_iterator" tag="kernel.cache_warmer"/>
       <argument>true</argument>
-      <argument>/home/alvann/PHP/Cours/TD1/var/cache/dev/App_KernelDevDebugContainerDeprecations.log</argument>
+      <argument>/home/alvann/PhpstormProjects/Projet/var/cache/dev/App_KernelDevDebugContainerDeprecations.log</argument>
     </service>
     <service id="cache_clearer" class="Symfony\Component\HttpKernel\CacheClearer\ChainCacheClearer">
       <argument type="tagged_iterator" tag="kernel.cache_clearer"/>
@@ -555,7 +534,7 @@
       </argument>
       <argument>UTF-8</argument>
       <argument type="service" id="debug.file_link_formatter" on-invalid="null"/>
-      <argument>/home/alvann/PHP/Cours/TD1</argument>
+      <argument>/home/alvann/PhpstormProjects/Projet</argument>
       <argument type="service">
         <service>
           <argument type="service" id="request_stack"/>
@@ -591,7 +570,7 @@
       <tag name="console.command"/>
       <tag name="container.no_preload"/>
       <argument type="service" id="filesystem"/>
-      <argument>/home/alvann/PHP/Cours/TD1</argument>
+      <argument>/home/alvann/PhpstormProjects/Projet</argument>
       <call method="setName">
         <argument>assets:install</argument>
       </call>
@@ -768,7 +747,7 @@
       <tag name="console.command"/>
       <tag name="container.no_preload"/>
       <argument>dev</argument>
-      <argument>/home/alvann/PHP/Cours/TD1</argument>
+      <argument>/home/alvann/PhpstormProjects/Projet</argument>
       <call method="setName">
         <argument>debug:dotenv</argument>
       </call>
@@ -838,11 +817,9 @@
       <argument type="service" id="form.registry"/>
       <argument type="collection">
         <argument>Symfony\Component\Form\Extension\Core\Type</argument>
-        <argument>App\Form</argument>
         <argument>Symfony\Bridge\Doctrine\Form\Type</argument>
       </argument>
       <argument type="collection">
-        <argument>App\Form\ProductType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FormType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\ChoiceType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FileType</argument>
@@ -956,9 +933,9 @@
     <service id="cache.app" class="Symfony\Component\Cache\Adapter\FilesystemAdapter" public="true">
       <tag name="cache.pool"/>
       <tag name="kernel.reset" method="reset"/>
-      <argument>t5O-lZYJYa</argument>
+      <argument>0+TtJ9CCaE</argument>
       <argument>0</argument>
-      <argument>/home/alvann/PHP/Cours/TD1/var/cache/dev/pools/app</argument>
+      <argument>/home/alvann/PhpstormProjects/Projet/var/cache/dev/pools/app</argument>
       <argument type="service" id="cache.default_marshaller" on-invalid="ignore"/>
       <call method="setLogger">
         <argument type="service" id="logger" on-invalid="ignore"/>
@@ -971,40 +948,40 @@
     <service id="cache.system" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="true">
       <tag name="cache.pool"/>
       <tag name="kernel.reset" method="reset"/>
-      <argument>eDaNcDSh6Z</argument>
+      <argument>u6TYWOECwT</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>/home/alvann/PHP/Cours/TD1/var/cache/dev/pools/system</argument>
+      <argument>/home/alvann/PhpstormProjects/Projet/var/cache/dev/pools/system</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
     <service id="cache.validator" class="Symfony\Component\Cache\Adapter\AdapterInterface">
       <tag name="cache.pool"/>
       <tag name="kernel.reset" method="reset"/>
-      <argument>Iv95d6r-Hk</argument>
+      <argument>8GzIps-FxD</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>/home/alvann/PHP/Cours/TD1/var/cache/dev/pools/system</argument>
+      <argument>/home/alvann/PhpstormProjects/Projet/var/cache/dev/pools/system</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
     <service id="cache.serializer" class="Symfony\Component\Cache\Adapter\AdapterInterface">
       <tag name="cache.pool"/>
       <tag name="kernel.reset" method="reset"/>
-      <argument>7WlRLyGWS-</argument>
+      <argument>YsorhWl7lU</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>/home/alvann/PHP/Cours/TD1/var/cache/dev/pools/system</argument>
+      <argument>/home/alvann/PhpstormProjects/Projet/var/cache/dev/pools/system</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
     <service id="cache.property_info" class="Symfony\Component\Cache\Adapter\AdapterInterface">
       <tag name="cache.pool"/>
       <tag name="kernel.reset" method="reset"/>
-      <argument>YlT+3AinTu</argument>
+      <argument>1CYAkOMv7D</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>/home/alvann/PHP/Cours/TD1/var/cache/dev/pools/system</argument>
+      <argument>/home/alvann/PhpstormProjects/Projet/var/cache/dev/pools/system</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -1014,7 +991,7 @@
       <argument></argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>/home/alvann/PHP/Cours/TD1/var/cache/dev/pools/system</argument>
+      <argument>/home/alvann/PhpstormProjects/Projet/var/cache/dev/pools/system</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -1033,7 +1010,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>/home/alvann/PHP/Cours/TD1/var/cache/dev/pools/app</argument>
+      <argument>/home/alvann/PhpstormProjects/Projet/var/cache/dev/pools/app</argument>
       <argument type="service" id="cache.default_marshaller" on-invalid="ignore"/>
       <call method="setLogger">
         <argument type="service" id="logger" on-invalid="ignore"/>
@@ -1498,7 +1475,7 @@
     </service>
     <service id="argument_resolver.not_tagged_controller" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
       <tag name="controller.argument_value_resolver" priority="-200"/>
-      <argument type="service" id=".service_locator.yrZtgZ0"/>
+      <argument type="service" id=".service_locator.L.EDYUC"/>
     </service>
     <service id="routing.resolver" class="Symfony\Component\Config\Loader\LoaderResolver">
       <call method="addLoader">
@@ -1593,7 +1570,7 @@
       <argument type="service" id=".service_locator.PvoQzFT.router.default"/>
       <argument>kernel::loadRoutes</argument>
       <argument type="collection">
-        <argument key="cache_dir">/home/alvann/PHP/Cours/TD1/var/cache/dev</argument>
+        <argument key="cache_dir">/home/alvann/PhpstormProjects/Projet/var/cache/dev</argument>
         <argument key="debug">true</argument>
         <argument key="generator_class">Symfony\Component\Routing\Generator\CompiledUrlGenerator</argument>
         <argument key="generator_dumper_class">Symfony\Component\Routing\Generator\Dumper\CompiledUrlGeneratorDumper</argument>
@@ -1631,7 +1608,7 @@
       <argument type="service" id="request_stack"/>
       <argument type="service" id="router.request_context" on-invalid="ignore"/>
       <argument type="service" id="logger" on-invalid="ignore"/>
-      <argument>/home/alvann/PHP/Cours/TD1</argument>
+      <argument>/home/alvann/PhpstormProjects/Projet</argument>
       <argument>true</argument>
     </service>
     <service id="Symfony\Bundle\FrameworkBundle\Controller\RedirectController" class="Symfony\Bundle\FrameworkBundle\Controller\RedirectController" public="true">
@@ -1659,7 +1636,7 @@
     </service>
     <service id="secrets.vault" class="Symfony\Bundle\FrameworkBundle\Secrets\SodiumVault">
       <tag name="container.env_var_loader"/>
-      <argument>/home/alvann/PHP/Cours/TD1/config/secrets/%env(default:kernel.environment:APP_RUNTIME_ENV)%</argument>
+      <argument>/home/alvann/PhpstormProjects/Projet/config/secrets/%env(default:kernel.environment:APP_RUNTIME_ENV)%</argument>
       <argument type="service" id="secrets.decryption_key" on-invalid="ignore"/>
     </service>
     <service id="secrets.decryption_key" class="Symfony\Component\String\LazyString" constructor="fromCallable">
@@ -1667,7 +1644,7 @@
       <argument>base64:default::SYMFONY_DECRYPTION_SECRET</argument>
     </service>
     <service id="secrets.local_vault" class="Symfony\Bundle\FrameworkBundle\Secrets\DotenvVault">
-      <argument>/home/alvann/PHP/Cours/TD1/.env.dev.local</argument>
+      <argument>/home/alvann/PhpstormProjects/Projet/.env.dev.local</argument>
     </service>
     <service id="property_info" class="Symfony\Component\PropertyInfo\PropertyInfoExtractor">
       <argument type="iterator">
@@ -1739,7 +1716,7 @@
       <argument>true</argument>
     </service>
     <service id="session.storage.factory.mock_file" class="Symfony\Component\HttpFoundation\Session\Storage\MockFileSessionStorageFactory">
-      <argument>/home/alvann/PHP/Cours/TD1/var/cache/dev/sessions</argument>
+      <argument>/home/alvann/PhpstormProjects/Projet/var/cache/dev/sessions</argument>
       <argument>MOCKSESSID</argument>
       <argument type="service">
         <service class="Symfony\Component\HttpFoundation\Session\Storage\MetadataBag">
@@ -1802,7 +1779,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension">
-      <argument type="service" id=".service_locator.vRi0sZE"/>
+      <argument type="service" id=".service_locator.Za9MpXe"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -1907,7 +1884,7 @@
       </call>
       <call method="addXmlMappings">
         <argument type="collection">
-          <argument>/home/alvann/PHP/Cours/TD1/vendor/symfony/form/Resources/config/validation.xml</argument>
+          <argument>/home/alvann/PhpstormProjects/Projet/vendor/symfony/form/Resources/config/validation.xml</argument>
         </argument>
       </call>
       <call method="enableAttributeMapping"/>
@@ -1930,10 +1907,10 @@
     <service id="validator.mapping.cache_warmer" class="Symfony\Bundle\FrameworkBundle\CacheWarmer\ValidatorCacheWarmer">
       <tag name="kernel.cache_warmer"/>
       <argument type="service" id="validator.builder"/>
-      <argument>/home/alvann/PHP/Cours/TD1/var/cache/dev/validation.php</argument>
+      <argument>/home/alvann/PhpstormProjects/Projet/var/cache/dev/validation.php</argument>
     </service>
     <service id="validator.mapping.cache.adapter" class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" constructor="create">
-      <argument>/home/alvann/PHP/Cours/TD1/var/cache/dev/validation.php</argument>
+      <argument>/home/alvann/PhpstormProjects/Projet/var/cache/dev/validation.php</argument>
       <argument type="service" id="cache.validator"/>
     </service>
     <service id="validator.validator_factory" class="Symfony\Component\Validator\ContainerConstraintValidatorFactory">
@@ -2190,10 +2167,10 @@
     <service id="cache.validator_expression_language" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="true">
       <tag name="cache.pool"/>
       <tag name="kernel.reset" method="reset"/>
-      <argument>atOdL13Vt-</argument>
+      <argument>0rPk5BZz6v</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>/home/alvann/PHP/Cours/TD1/var/cache/dev/pools/system</argument>
+      <argument>/home/alvann/PhpstormProjects/Projet/var/cache/dev/pools/system</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -2227,8 +2204,8 @@
       <argument type="service" id="filesystem"/>
       <argument type="service" id="maker.autoloader_util"/>
       <argument type="service" id="maker.file_link_formatter"/>
-      <argument>/home/alvann/PHP/Cours/TD1</argument>
-      <argument>/home/alvann/PHP/Cours/TD1/templates</argument>
+      <argument>/home/alvann/PhpstormProjects/Projet</argument>
+      <argument>/home/alvann/PhpstormProjects/Projet/templates</argument>
     </service>
     <service id="maker.autoloader_finder" class="Symfony\Bundle\MakerBundle\Util\ComposerAutoloaderFinder">
       <argument>App</argument>
@@ -2400,7 +2377,7 @@
     </service>
     <service id="maker.maker.make_migration" class="Symfony\Bundle\MakerBundle\Maker\MakeMigration">
       <tag name="maker.command"/>
-      <argument>/home/alvann/PHP/Cours/TD1</argument>
+      <argument>/home/alvann/PhpstormProjects/Projet</argument>
       <argument type="service" id="maker.file_link_formatter"/>
     </service>
     <service id="maker.maker.make_stimulus_controller" class="Symfony\Bundle\MakerBundle\Maker\MakeStimulusController">
@@ -2597,7 +2574,7 @@
       <argument type="service" id="doctrine.debug_data_holder"/>
       <argument type="service" id="debug.stopwatch" on-invalid="null"/>
     </service>
-    <service id=".1_ServiceLocator~45sk607" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".1_ServiceLocator~wkR2v8P" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <argument type="collection"/>
     </service>
     <service id="doctrine.orm.proxy_cache_warmer" class="Symfony\Bridge\Doctrine\CacheWarmer\ProxyCacheWarmer">
@@ -2616,7 +2593,7 @@
     <service id="doctrine.orm.configuration" class="Doctrine\ORM\Configuration" abstract="true"/>
     <service id="doctrine.orm.entity_manager.abstract" class="Doctrine\ORM\EntityManager" lazy="true" abstract="true"/>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory">
-      <argument type="service" id=".service_locator.LCFup4c"/>
+      <argument type="service" id=".service_locator._inl0RG"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -2790,7 +2767,7 @@
         <argument type="service" id=".doctrine.orm.default_metadata_driver"/>
       </call>
       <call method="setProxyDir">
-        <argument>/home/alvann/PHP/Cours/TD1/var/cache/dev/doctrine/orm/Proxies</argument>
+        <argument>/home/alvann/PhpstormProjects/Projet/var/cache/dev/doctrine/orm/Proxies</argument>
       </call>
       <call method="setProxyNamespace">
         <argument>Proxies</argument>
@@ -2825,7 +2802,7 @@
     </service>
     <service id="doctrine.orm.default_attribute_metadata_driver" class="Doctrine\ORM\Mapping\Driver\AttributeDriver">
       <argument type="collection">
-        <argument>/home/alvann/PHP/Cours/TD1/src/Entity</argument>
+        <argument>/home/alvann/PhpstormProjects/Projet/src/Entity</argument>
       </argument>
       <argument>true</argument>
     </service>
@@ -2887,7 +2864,7 @@
     <service id="doctrine.migrations.configuration" class="Doctrine\Migrations\Configuration\Configuration">
       <call method="addMigrationsDirectory">
         <argument>DoctrineMigrations</argument>
-        <argument>/home/alvann/PHP/Cours/TD1/migrations</argument>
+        <argument>/home/alvann/PhpstormProjects/Projet/migrations</argument>
       </call>
       <call method="setAllOrNothing">
         <argument>false</argument>
@@ -3073,7 +3050,7 @@
       <tag name="container.preload" class="Twig\TemplateWrapper"/>
       <argument type="service" id="twig.loader.native_filesystem"/>
       <argument type="collection">
-        <argument key="cache">/home/alvann/PHP/Cours/TD1/var/cache/dev/twig</argument>
+        <argument key="cache">/home/alvann/PhpstormProjects/Projet/var/cache/dev/twig</argument>
         <argument key="charset">UTF-8</argument>
         <argument key="debug">true</argument>
         <argument key="strict_variables">true</argument>
@@ -3147,9 +3124,9 @@
     <service id="twig.template_iterator" class="Symfony\Bundle\TwigBundle\TemplateIterator">
       <argument type="service" id="kernel"/>
       <argument type="collection">
-        <argument key="/home/alvann/PHP/Cours/TD1/vendor/symfony/twig-bridge/Resources/views/Form">null</argument>
+        <argument key="/home/alvann/PhpstormProjects/Projet/vendor/symfony/twig-bridge/Resources/views/Form">null</argument>
       </argument>
-      <argument>/home/alvann/PHP/Cours/TD1/templates</argument>
+      <argument>/home/alvann/PhpstormProjects/Projet/templates</argument>
       <argument type="collection">
         <argument>*.twig</argument>
       </argument>
@@ -3163,36 +3140,36 @@
     <service id="twig.loader.native_filesystem" class="Twig\Loader\FilesystemLoader">
       <tag name="twig.loader"/>
       <argument type="collection"/>
-      <argument>/home/alvann/PHP/Cours/TD1</argument>
+      <argument>/home/alvann/PhpstormProjects/Projet</argument>
       <call method="addPath">
-        <argument>/home/alvann/PHP/Cours/TD1/vendor/doctrine/doctrine-bundle/templates</argument>
+        <argument>/home/alvann/PhpstormProjects/Projet/vendor/doctrine/doctrine-bundle/templates</argument>
         <argument>Doctrine</argument>
       </call>
       <call method="addPath">
-        <argument>/home/alvann/PHP/Cours/TD1/vendor/doctrine/doctrine-bundle/templates</argument>
+        <argument>/home/alvann/PhpstormProjects/Projet/vendor/doctrine/doctrine-bundle/templates</argument>
         <argument>!Doctrine</argument>
       </call>
       <call method="addPath">
-        <argument>/home/alvann/PHP/Cours/TD1/vendor/doctrine/doctrine-migrations-bundle/Resources/views</argument>
+        <argument>/home/alvann/PhpstormProjects/Projet/vendor/doctrine/doctrine-migrations-bundle/Resources/views</argument>
         <argument>DoctrineMigrations</argument>
       </call>
       <call method="addPath">
-        <argument>/home/alvann/PHP/Cours/TD1/vendor/doctrine/doctrine-migrations-bundle/Resources/views</argument>
+        <argument>/home/alvann/PhpstormProjects/Projet/vendor/doctrine/doctrine-migrations-bundle/Resources/views</argument>
         <argument>!DoctrineMigrations</argument>
       </call>
       <call method="addPath">
-        <argument>/home/alvann/PHP/Cours/TD1/vendor/symfony/security-bundle/Resources/views</argument>
+        <argument>/home/alvann/PhpstormProjects/Projet/vendor/symfony/security-bundle/Resources/views</argument>
         <argument>Security</argument>
       </call>
       <call method="addPath">
-        <argument>/home/alvann/PHP/Cours/TD1/vendor/symfony/security-bundle/Resources/views</argument>
+        <argument>/home/alvann/PhpstormProjects/Projet/vendor/symfony/security-bundle/Resources/views</argument>
         <argument>!Security</argument>
       </call>
       <call method="addPath">
-        <argument>/home/alvann/PHP/Cours/TD1/templates</argument>
+        <argument>/home/alvann/PhpstormProjects/Projet/templates</argument>
       </call>
       <call method="addPath">
-        <argument>/home/alvann/PHP/Cours/TD1/vendor/symfony/twig-bridge/Resources/views/Form</argument>
+        <argument>/home/alvann/PhpstormProjects/Projet/vendor/symfony/twig-bridge/Resources/views/Form</argument>
       </call>
     </service>
     <service id="twig.loader.chain" class="Twig\Loader\ChainLoader"/>
@@ -3292,9 +3269,9 @@
       <tag name="console.command"/>
       <tag name="container.no_preload"/>
       <argument type="service" id="twig"/>
-      <argument>/home/alvann/PHP/Cours/TD1</argument>
+      <argument>/home/alvann/PhpstormProjects/Projet</argument>
       <argument>%kernel.bundles_metadata%</argument>
-      <argument>/home/alvann/PHP/Cours/TD1/templates</argument>
+      <argument>/home/alvann/PhpstormProjects/Projet/templates</argument>
       <argument type="service" id="debug.file_link_formatter" on-invalid="null"/>
       <call method="setName">
         <argument>debug:twig</argument>
@@ -3332,16 +3309,7 @@
     <service id="doctrine.fixtures.loader" class="Doctrine\Bundle\FixturesBundle\Loader\SymfonyFixturesLoader">
       <argument type="service" id="service_container"/>
       <call method="addFixtures">
-        <argument type="collection">
-          <argument type="collection">
-            <argument key="fixture" type="service" id="App\DataFixtures\AppFixtures"/>
-            <argument key="groups" type="collection"/>
-          </argument>
-          <argument type="collection">
-            <argument key="fixture" type="service" id="App\DataFixtures\ProductFixtures"/>
-            <argument key="groups" type="collection"/>
-          </argument>
-        </argument>
+        <argument type="collection"/>
       </call>
     </service>
     <service id="doctrine.fixtures.purger.orm_purger_factory" class="Doctrine\Bundle\FixturesBundle\Purger\ORMPurgerFactory">
@@ -3475,10 +3443,10 @@
     <service id="cache.security_expression_language" class="Symfony\Component\Cache\Adapter\AdapterInterface">
       <tag name="cache.pool"/>
       <tag name="kernel.reset" method="reset"/>
-      <argument>ya0--FTbvy</argument>
+      <argument>Ga3uK5s7Ym</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>/home/alvann/PHP/Cours/TD1/var/cache/dev/pools/system</argument>
+      <argument>/home/alvann/PhpstormProjects/Projet/var/cache/dev/pools/system</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -3491,10 +3459,10 @@
     <service id="cache.security_is_granted_attribute_expression_language" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="true">
       <tag name="cache.pool"/>
       <tag name="kernel.reset" method="reset"/>
-      <argument>OFFJQkn36u</argument>
+      <argument>F4BaxL3fT0</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>/home/alvann/PHP/Cours/TD1/var/cache/dev/pools/system</argument>
+      <argument>/home/alvann/PhpstormProjects/Projet/var/cache/dev/pools/system</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -3978,28 +3946,17 @@
         <argument>Hash a user password</argument>
       </call>
     </service>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ListUserController" class="App\Controller\ListUserController" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ListUserController" class="App\Controller\ListUserController" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\ListUserController" class="App\Controller\ListUserController" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ProductController" class="App\Controller\ProductController" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ProductController" class="App\Controller\ProductController" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\ProductController" class="App\Controller\ProductController" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\UserController" class="App\Controller\UserController" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\UserController" class="App\Controller\UserController" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\UserController" class="App\Controller\UserController" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\UserControllerTest" class="App\Controller\UserControllerTest" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\UserControllerTest" class="App\Controller\UserControllerTest" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\UserControllerTest" class="App\Controller\UserControllerTest" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\ProductFixtures" class="App\DataFixtures\ProductFixtures" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\DataFixtures\ProductFixtures" class="App\DataFixtures\ProductFixtures" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ProductType" class="App\Form\ProductType" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Form\ProductType" class="App\Form\ProductType" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CustomerRepository" class="App\Repository\CustomerRepository" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Repository\CustomerRepository" class="App\Repository\CustomerRepository" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ProductRepository" class="App\Repository\ProductRepository" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Repository\ProductRepository" class="App\Repository\ProductRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\AccueilController" class="App\Controller\AccueilController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\AccueilController" class="App\Controller\AccueilController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\AccueilController" class="App\Controller\AccueilController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\EventController" class="App\Controller\EventController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\EventController" class="App\Controller\EventController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\EventController" class="App\Controller\EventController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ProfileController" class="App\Controller\ProfileController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ProfileController" class="App\Controller\ProfileController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\ProfileController" class="App\Controller\ProfileController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\UserRepository" class="App\Repository\UserRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\UserRepository" class="App\Repository\UserRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".service_locator.bJ.4HC5" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -4423,40 +4380,13 @@
         <argument key="loader" type="service_closure" id=".errored..service_locator.y4_Zrx..Symfony\Component\Config\Loader\LoaderInterface"/>
       </argument>
     </service>
-    <service id=".service_locator.uGACkMP" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.L.EDYUC" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="repository" type="service_closure" id="App\Repository\ProductRepository"/>
-      </argument>
-    </service>
-    <service id=".errored.fg1vpc4" class="App\Controller\Request">
-      <tag name="container.error" message="Cannot determine controller argument for &quot;App\Controller\ProductController::new()&quot;: the $request argument is type-hinted with the non-existent class or interface: &quot;App\Controller\Request&quot;. Did you forget to add a use statement?"/>
-    </service>
-    <service id=".service_locator.jsuHsHQ" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator"/>
-      <argument type="collection">
-        <argument key="request" type="service_closure" id=".errored.fg1vpc4"/>
-      </argument>
-    </service>
-    <service id=".service_locator.q08ZHKU" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator"/>
-      <argument type="collection">
-        <argument key="request" type="service_closure" id=".errored..service_locator.q08ZHKU.http\Client\Request"/>
-      </argument>
-    </service>
-    <service id=".service_locator.yrZtgZ0" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator"/>
-      <argument type="collection">
-        <argument key="App\Controller\ProductController::list" type="service_closure" id=".service_locator.uGACkMP"/>
-        <argument key="App\Controller\ProductController::new" type="service_closure" id=".service_locator.jsuHsHQ"/>
-        <argument key="App\Controller\UserController::welcome" type="service_closure" id=".service_locator.q08ZHKU"/>
         <argument key="App\Kernel::loadRoutes" type="service_closure" id=".service_locator.y4_Zrx."/>
         <argument key="App\Kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.y4_Zrx."/>
         <argument key="kernel::loadRoutes" type="service_closure" id=".service_locator.y4_Zrx."/>
         <argument key="kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.y4_Zrx."/>
-        <argument key="App\Controller\ProductController:list" type="service_closure" id=".service_locator.uGACkMP"/>
-        <argument key="App\Controller\ProductController:new" type="service_closure" id=".service_locator.jsuHsHQ"/>
-        <argument key="App\Controller\UserController:welcome" type="service_closure" id=".service_locator.q08ZHKU"/>
         <argument key="kernel:loadRoutes" type="service_closure" id=".service_locator.y4_Zrx."/>
         <argument key="kernel:registerContainerConfiguration" type="service_closure" id=".service_locator.y4_Zrx."/>
       </argument>
@@ -4538,10 +4468,9 @@
       <argument type="service" id="argument_resolver.query_parameter_value_resolver"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.vRi0sZE" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.Za9MpXe" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="App\Form\ProductType" type="service_closure" id="App\Form\ProductType"/>
         <argument key="Symfony\Bridge\Doctrine\Form\Type\EntityType" type="service_closure" id="form.type.entity"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\ChoiceType" type="service_closure" id="form.type.choice"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\ColorType" type="service_closure" id="form.type.color"/>
@@ -4559,11 +4488,10 @@
         <argument key="doctrine.orm.listeners.pdo_session_handler_schema_listener" type="service_closure" id="doctrine.orm.listeners.pdo_session_handler_schema_listener"/>
       </argument>
     </service>
-    <service id=".service_locator.LCFup4c" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator._inl0RG" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="App\Repository\CustomerRepository" type="service_closure" id="App\Repository\CustomerRepository"/>
-        <argument key="App\Repository\ProductRepository" type="service_closure" id="App\Repository\ProductRepository"/>
+        <argument key="App\Repository\UserRepository" type="service_closure" id="App\Repository\UserRepository"/>
       </argument>
     </service>
     <service id=".service_locator.KLVvNIq" class="Symfony\Component\DependencyInjection\ServiceLocator">
@@ -4705,27 +4633,21 @@
         <argument key="twig" type="service_closure" id="twig" on-invalid="ignore"/>
       </argument>
     </service>
-    <service id=".service_locator.jUv.zyj.App\Controller\ListUserController" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator_context" id="App\Controller\ListUserController"/>
-      <argument>App\Controller\ListUserController</argument>
+    <service id=".service_locator.jUv.zyj.App\Controller\AccueilController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\AccueilController"/>
+      <argument>App\Controller\AccueilController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.jUv.zyj" method="withContext"/>
     </service>
-    <service id=".service_locator.jUv.zyj.App\Controller\ProductController" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator_context" id="App\Controller\ProductController"/>
-      <argument>App\Controller\ProductController</argument>
+    <service id=".service_locator.jUv.zyj.App\Controller\EventController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\EventController"/>
+      <argument>App\Controller\EventController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.jUv.zyj" method="withContext"/>
     </service>
-    <service id=".service_locator.jUv.zyj.App\Controller\UserController" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator_context" id="App\Controller\UserController"/>
-      <argument>App\Controller\UserController</argument>
-      <argument type="service" id="service_container"/>
-      <factory service=".service_locator.jUv.zyj" method="withContext"/>
-    </service>
-    <service id=".service_locator.jUv.zyj.App\Controller\UserControllerTest" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator_context" id="App\Controller\UserControllerTest"/>
-      <argument>App\Controller\UserControllerTest</argument>
+    <service id=".service_locator.jUv.zyj.App\Controller\ProfileController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\ProfileController"/>
+      <argument>App\Controller\ProfileController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.jUv.zyj" method="withContext"/>
     </service>
@@ -4853,10 +4775,9 @@
       <call method="allowControllers">
         <argument type="collection">
           <argument>App\Kernel</argument>
-          <argument>App\Controller\ListUserController</argument>
-          <argument>App\Controller\ProductController</argument>
-          <argument>App\Controller\UserController</argument>
-          <argument>App\Controller\UserControllerTest</argument>
+          <argument>App\Controller\AccueilController</argument>
+          <argument>App\Controller\EventController</argument>
+          <argument>App\Controller\ProfileController</argument>
           <argument>Doctrine\Bundle\DoctrineBundle\Controller\ProfilerController</argument>
         </argument>
       </call>
@@ -4902,9 +4823,6 @@
     <service id="debug.security.event_dispatcher.main.inner" class="Symfony\Component\EventDispatcher\EventDispatcher"/>
     <service id=".errored..service_locator.y4_Zrx..Symfony\Component\Config\Loader\LoaderInterface" class="Symfony\Component\Config\Loader\LoaderInterface">
       <tag name="container.error" message="Cannot autowire service &quot;.service_locator.y4_Zrx.&quot;: it needs an instance of &quot;Symfony\Component\Config\Loader\LoaderInterface&quot; but this type has been excluded from autowiring."/>
-    </service>
-    <service id=".errored..service_locator.q08ZHKU.http\Client\Request" class="http\Client\Request">
-      <tag name="container.error" message="Cannot autowire service &quot;.service_locator.q08ZHKU&quot;: it references class &quot;http\Client\Request&quot; but no such service exists."/>
     </service>
     <service id=".console.command.about.lazy" class="Symfony\Component\Console\Command\LazyCommand">
       <argument>about</argument>
@@ -5704,7 +5622,7 @@
     <service id="Symfony\Component\Security\Core\User\UserCheckerInterface" alias="security.user_checker"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.bJ.4HC5" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.yrZtgZ0"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.L.EDYUC"/>
     <service id="doctrine.id_generator_locator" alias=".service_locator.KLVvNIq"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface" alias="logger"/>
@@ -5718,8 +5636,6 @@
     <service id="doctrine.orm.default_metadata_driver" alias=".doctrine.orm.default_metadata_driver"/>
     <service id="security.event_dispatcher.main" alias="debug.security.event_dispatcher.main"/>
     <service id=".service_locator.gFlme_s" alias=".service_locator.y4_Zrx."/>
-    <service id=".service_locator.3DjPx3m" alias=".service_locator.uGACkMP"/>
-    <service id=".service_locator.GFhc6VS" alias=".service_locator.q08ZHKU"/>
     <service id=".service_locator.GDg2hr7" alias=".service_locator.jUv.zyj"/>
   </services>
 </container>

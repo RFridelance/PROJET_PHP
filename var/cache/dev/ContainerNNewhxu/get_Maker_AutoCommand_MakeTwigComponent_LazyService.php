@@ -21,6 +21,6 @@ class get_Maker_AutoCommand_MakeTwigComponent_LazyService extends App_KernelDevD
         include_once \dirname(__DIR__, 4).'/vendor/symfony/console/Command/Command.php';
         include_once \dirname(__DIR__, 4).'/vendor/symfony/console/Command/LazyCommand.php';
 
-        return $container->privates['.maker.auto_command.make_twig_component.lazy'] = new \Symfony\Component\Console\Command\LazyCommand('make:twig-component', [], 'Create a twig (or live) component', false, #[\Closure(name: 'maker.auto_command.make_twig_component', class: 'Symfony\\Bundle\\MakerBundle\\Command\\MakerCommand')] fn (): \Symfony\Bundle\MakerBundle\Command\MakerCommand => ($container->privates['maker.auto_command.make_twig_component'] ?? $container->load('getMaker_AutoCommand_MakeTwigComponentService')));
+        return $container->privates['.maker.auto_command.make_twig_component.lazy'] = new \Symfony\Component\Console\Command\LazyCommand('make:twig-components', [], 'Create a twig (or live) components', false, #[\Closure(name: 'maker.auto_command.make_twig_component', class: 'Symfony\\Bundle\\MakerBundle\\Command\\MakerCommand')] fn (): \Symfony\Bundle\MakerBundle\Command\MakerCommand => ($container->privates['maker.auto_command.make_twig_component'] ?? $container->load('getMaker_AutoCommand_MakeTwigComponentService')));
     }
 }

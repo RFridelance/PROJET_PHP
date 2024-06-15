@@ -30,7 +30,7 @@ class getMaker_AutoCommand_MakeScheduleService extends App_KernelDevDebugContain
         $container->privates['maker.auto_command.make_schedule'] = $instance = new \Symfony\Bundle\MakerBundle\Command\MakerCommand(new \Symfony\Bundle\MakerBundle\Maker\MakeSchedule($a), $a, ($container->privates['maker.generator'] ?? $container->load('getMaker_GeneratorService')), ($container->privates['maker.template_linter'] ??= new \Symfony\Bundle\MakerBundle\Util\TemplateLinter($container->getEnv('default::string:MAKER_PHP_CS_FIXER_BINARY_PATH'), $container->getEnv('default::string:MAKER_PHP_CS_FIXER_CONFIG_PATH'))));
 
         $instance->setName('make:schedule');
-        $instance->setDescription('Create a scheduler component');
+        $instance->setDescription('Create a scheduler components');
 
         return $instance;
     }

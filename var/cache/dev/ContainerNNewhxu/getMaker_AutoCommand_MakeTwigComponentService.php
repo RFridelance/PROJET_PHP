@@ -27,8 +27,8 @@ class getMaker_AutoCommand_MakeTwigComponentService extends App_KernelDevDebugCo
 
         $container->privates['maker.auto_command.make_twig_component'] = $instance = new \Symfony\Bundle\MakerBundle\Command\MakerCommand(new \Symfony\Bundle\MakerBundle\Maker\MakeTwigComponent(), ($container->privates['maker.file_manager'] ?? $container->load('getMaker_FileManagerService')), ($container->privates['maker.generator'] ?? $container->load('getMaker_GeneratorService')), ($container->privates['maker.template_linter'] ??= new \Symfony\Bundle\MakerBundle\Util\TemplateLinter($container->getEnv('default::string:MAKER_PHP_CS_FIXER_BINARY_PATH'), $container->getEnv('default::string:MAKER_PHP_CS_FIXER_CONFIG_PATH'))));
 
-        $instance->setName('make:twig-component');
-        $instance->setDescription('Create a twig (or live) component');
+        $instance->setName('make:twig-components');
+        $instance->setDescription('Create a twig (or live) components');
 
         return $instance;
     }
