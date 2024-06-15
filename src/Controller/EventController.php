@@ -13,6 +13,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Psr\Log\LoggerInterface;
 
 class EventController extends AbstractController
@@ -29,6 +30,9 @@ class EventController extends AbstractController
     #[Route('/event/new', name: 'app_event_new')]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
+        // Utiliser le voter pour vérifier si l'utilisateur peut créer un événement non public
+        $this->denyAccessUnlessGranted('view', new Event());
+
         $event = new Event();
         $form = $this->createForm(EventType::class, $event);
 
@@ -55,10 +59,13 @@ class EventController extends AbstractController
     #[Route('/events', name: 'app_event_list')]
     public function list(Request $request, EntityManagerInterface $entityManager, PaginatorInterface $paginator): Response
     {
+        // Utiliser le voter pour vérifier si l'utilisateur peut voir les événements non publics
+        $this->denyAccessUnlessGranted('view', new Event());
+
         // Si l'utilisateur est connecté, récupérez tous les événements
         if ($this->getUser()) {
             $query = $entityManager->getRepository(Event::class)->createQueryBuilder('e')
-                ->orderBy('e.Date', 'DESC') // Ordonner par date DESC ou une autre colonne appropriée
+                ->orderBy('e.Date', 'DESC')
                 ->getQuery();
         } else {
             // Sinon, récupérez seulement les événements publics
@@ -68,10 +75,11 @@ class EventController extends AbstractController
                 ->getQuery();
         }
 
+        // Paginer les résultats
         $events = $paginator->paginate(
             $query,
-            $request->query->getInt('page', 1),
-            2
+            $request->query->getInt('page', 1), // Récupérer le numéro de la page à afficher
+            10 // Nombre d'éléments par page
         );
 
         return $this->render('event/list.html.twig', [
@@ -82,12 +90,8 @@ class EventController extends AbstractController
     #[Route('/event/{id}/edit', name: 'app_event_edit', methods: ['GET', 'POST'])]
     public function edit(Event $event, Request $request, EntityManagerInterface $entityManager): Response
     {
-
-
-        if ($event->getCreator() !== $this->getUser()) {
-            $this->addFlash('danger', 'Vous n\'êtes pas autorisé à modifier cet événement.');
-            return $this->redirectToRoute('app_event_list');
-        }
+        // Utiliser le voter pour vérifier si l'utilisateur peut modifier cet événement
+        $this->denyAccessUnlessGranted('edit', $event);
 
         $form = $this->createForm(EventType::class, $event);
         $form->handleRequest($request);
@@ -108,11 +112,8 @@ class EventController extends AbstractController
     #[Route('/event/{id}/delete', name: 'app_event_delete', methods: ['POST'])]
     public function delete(Event $event, EntityManagerInterface $entityManager): Response
     {
-
-        if ($event->getCreator() !== $this->getUser()) {
-            $this->addFlash('danger', 'Vous n\'êtes pas autorisé à supprimer cet événement.');
-            return $this->redirectToRoute('app_event_list');
-        }
+        // Utiliser le voter pour vérifier si l'utilisateur peut supprimer cet événement
+        $this->denyAccessUnlessGranted('delete', $event);
 
         // Supprimer l'événement de la base de données
         $entityManager->remove($event);

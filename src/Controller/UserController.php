@@ -7,6 +7,7 @@ use App\Form\ChangePasswordFormType;
 use App\Form\UserUpdateType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
@@ -26,8 +27,10 @@ class UserController extends AbstractController
     }
 
     #[Route('/user/{id}/update', name: 'user_update')]
-    public function edit(Request $request, User $user): Response
+    public function edit(Request $request, User $user, Security $security): Response
     {
+        $this->denyAccessUnlessGranted('edit', $user);
+
         $form = $this->createForm(UserUpdateType::class, $user);
         $form->handleRequest($request);
 
@@ -36,7 +39,7 @@ class UserController extends AbstractController
             $entityManager->persist($user);
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_profile'); // Redirection vers une autre page après modification
+            return $this->redirectToRoute('app_profile'); // Redirection après modification du profil
         }
 
         return $this->render('user/update.html.twig', [
@@ -47,6 +50,9 @@ class UserController extends AbstractController
     #[Route('/profile/change-password', name: 'user_change_password')]
     public function changePassword(Request $request, UserPasswordHasherInterface $passwordHasher, EntityManagerInterface $entityManager): Response
     {
+
+
+
         $user = $this->getUser(); // Récupérer l'utilisateur actuellement connecté
 
         if (!$user) {
