@@ -1,4 +1,5 @@
 <?php
+// src/Controller/EventController.php
 
 namespace App\Controller;
 
@@ -33,15 +34,17 @@ class EventController extends AbstractController
 
         $form->handleRequest($request);
 
-        if ($form->isSubmitted()) {
-            if ($form->isValid()) {
-                $entityManager->persist($event);
-                $entityManager->flush();
+        if ($form->isSubmitted() && $form->isValid()) {
+            // Récupérer l'utilisateur connecté
+            $user = $this->getUser();
 
-                return $this->redirectToRoute('app_event_list');
-            } else {
-                $this->addFlash('danger', 'Le formulaire contient des erreurs. Veuillez les corriger.');
-            }
+            // Associer l'utilisateur comme créateur de l'événement
+            $event->setCreator($user);
+
+            $entityManager->persist($event);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('app_event_list');
         }
 
         return $this->render('event/new.html.twig', [
@@ -52,11 +55,13 @@ class EventController extends AbstractController
     #[Route('/events', name: 'app_event_list')]
     public function list(Request $request, EntityManagerInterface $entityManager, PaginatorInterface $paginator): Response
     {
+        // Si l'utilisateur est connecté, récupérez tous les événements
         if ($this->getUser()) {
             $query = $entityManager->getRepository(Event::class)->createQueryBuilder('e')
-                ->orderBy('e.Date', 'DESC')
+                ->orderBy('e.Date', 'DESC') // Ordonner par date DESC ou une autre colonne appropriée
                 ->getQuery();
         } else {
+            // Sinon, récupérez seulement les événements publics
             $query = $entityManager->getRepository(Event::class)->createQueryBuilder('e')
                 ->where('e.public = true')
                 ->orderBy('e.Date', 'DESC')
@@ -73,6 +78,51 @@ class EventController extends AbstractController
             'events' => $events,
         ]);
     }
+
+    #[Route('/event/{id}/edit', name: 'app_event_edit', methods: ['GET', 'POST'])]
+    public function edit(Event $event, Request $request, EntityManagerInterface $entityManager): Response
+    {
+
+
+        if ($event->getCreator() !== $this->getUser()) {
+            $this->addFlash('danger', 'Vous n\'êtes pas autorisé à modifier cet événement.');
+            return $this->redirectToRoute('app_event_list');
+        }
+
+        $form = $this->createForm(EventType::class, $event);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager->flush();
+
+            $this->addFlash('success', 'L\'événement a été modifié avec succès.');
+            return $this->redirectToRoute('app_event_list');
+        }
+
+        return $this->render('event/edit.html.twig', [
+            'form' => $form->createView(),
+        ]);
+    }
+
+
+    #[Route('/event/{id}/delete', name: 'app_event_delete', methods: ['POST'])]
+    public function delete(Event $event, EntityManagerInterface $entityManager): Response
+    {
+
+        if ($event->getCreator() !== $this->getUser()) {
+            $this->addFlash('danger', 'Vous n\'êtes pas autorisé à supprimer cet événement.');
+            return $this->redirectToRoute('app_event_list');
+        }
+
+        // Supprimer l'événement de la base de données
+        $entityManager->remove($event);
+        $entityManager->flush();
+
+        $this->addFlash('success', 'L\'événement a été supprimé avec succès.');
+        return $this->redirectToRoute('app_event_list');
+    }
+
+
 
     #[Route('/inscriptions', name: 'app_inscriptions')]
     public function inscriptions(UserInterface $user): Response

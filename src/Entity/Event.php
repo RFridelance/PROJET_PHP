@@ -34,6 +34,10 @@ class Event
     #[ORM\ManyToMany(targetEntity: User::class, mappedBy: 'events')]
     private Collection $users;
 
+    #[ORM\ManyToOne(targetEntity: User::class)]
+    private ?User $creator = null; // Relation avec l'utilisateur créateur de l'événement
+
+
     public function __construct()
     {
         $this->users = new ArrayCollection();
@@ -127,6 +131,18 @@ class Event
         if ($this->users->removeElement($user)) {
             $user->removeEvent($this);
         }
+
+        return $this;
+    }
+
+    public function getCreator(): ?User
+    {
+        return $this->creator;
+    }
+
+    public function setCreator(?User $creator): self
+    {
+        $this->creator = $creator;
 
         return $this;
     }
