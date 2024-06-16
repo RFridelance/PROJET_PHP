@@ -4,6 +4,7 @@
 namespace App\Controller;
 
 use App\Entity\Event;
+use App\Form\EventFilterType;
 use App\Form\EventType;
 use App\Service\MailJetService;
 use Doctrine\ORM\EntityManagerInterface;
@@ -13,7 +14,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\User\UserInterface;
-use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Psr\Log\LoggerInterface;
 
 class EventController extends AbstractController
@@ -30,19 +30,13 @@ class EventController extends AbstractController
     #[Route('/event/new', name: 'app_event_new')]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
-        // Utiliser le voter pour vérifier si l'utilisateur peut créer un événement non public
-        $this->denyAccessUnlessGranted('view', new Event());
-
         $event = new Event();
         $form = $this->createForm(EventType::class, $event);
 
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // Récupérer l'utilisateur connecté
             $user = $this->getUser();
-
-            // Associer l'utilisateur comme créateur de l'événement
             $event->setCreator($user);
 
             $entityManager->persist($event);
@@ -59,35 +53,58 @@ class EventController extends AbstractController
     #[Route('/events', name: 'app_event_list')]
     public function list(Request $request, EntityManagerInterface $entityManager, PaginatorInterface $paginator): Response
     {
-        // Si l'utilisateur est connecté, récupérez tous les événements
-        if ($this->getUser()) {
-            $query = $entityManager->getRepository(Event::class)->createQueryBuilder('e')
-                ->orderBy('e.Date', 'DESC')
-                ->getQuery();
-        } else {
-            // Sinon, récupérez seulement les événements publics
-            $query = $entityManager->getRepository(Event::class)->createQueryBuilder('e')
-                ->where('e.public = true')
-                ->orderBy('e.Date', 'DESC')
-                ->getQuery();
+        $filterForm = $this->createForm(EventFilterType::class);
+        $filterForm->handleRequest($request);
+
+        $queryBuilder = $entityManager->getRepository(Event::class)->createQueryBuilder('e');
+
+        if ($filterForm->isSubmitted() && $filterForm->isValid()) {
+            $data = $filterForm->getData();
+
+            if (!empty($data['title'])) {
+                $queryBuilder->andWhere('e.title LIKE :title')
+                    ->setParameter('title', '%' . $data['title'] . '%');
+            }
+
+            if (!empty($data['dateFrom'])) {
+                $queryBuilder->andWhere('e.date >= :dateFrom')
+                    ->setParameter('dateFrom', $data['dateFrom']);
+            }
+
+            if (!empty($data['dateTo'])) {
+                $queryBuilder->andWhere('e.date <= :dateTo')
+                    ->setParameter('dateTo', $data['dateTo']);
+            }
+
+            if ($data['public'] !== null) {
+                $queryBuilder->andWhere('e.public = :public')
+                    ->setParameter('public', $data['public']);
+            }
         }
 
-        // Paginer les résultats
+        if ($this->getUser()) {
+            $queryBuilder->orderBy('e.date', 'DESC');
+        } else {
+            $queryBuilder->where('e.public = true')->orderBy('e.date', 'DESC');
+        }
+
+        $query = $queryBuilder->getQuery();
+
         $events = $paginator->paginate(
             $query,
-            $request->query->getInt('page', 1), // Récupérer le numéro de la page à afficher
-            10 // Nombre d'éléments par page
+            $request->query->getInt('page', 1),
+            10
         );
 
         return $this->render('event/list.html.twig', [
             'events' => $events,
+            'filter_form' => $filterForm->createView(),
         ]);
     }
 
     #[Route('/event/{id}/edit', name: 'app_event_edit', methods: ['GET', 'POST'])]
     public function edit(Event $event, Request $request, EntityManagerInterface $entityManager): Response
     {
-        // Utiliser le voter pour vérifier si l'utilisateur peut modifier cet événement
         $this->denyAccessUnlessGranted('edit', $event);
 
         $form = $this->createForm(EventType::class, $event);
@@ -105,22 +122,17 @@ class EventController extends AbstractController
         ]);
     }
 
-
     #[Route('/event/{id}/delete', name: 'app_event_delete', methods: ['POST'])]
     public function delete(Event $event, EntityManagerInterface $entityManager): Response
     {
-        // Utiliser le voter pour vérifier si l'utilisateur peut supprimer cet événement
         $this->denyAccessUnlessGranted('delete', $event);
 
-        // Supprimer l'événement de la base de données
         $entityManager->remove($event);
         $entityManager->flush();
 
         $this->addFlash('success', 'L\'événement a été supprimé avec succès.');
         return $this->redirectToRoute('app_event_list');
     }
-
-
 
     #[Route('/inscriptions', name: 'app_inscriptions')]
     public function inscriptions(UserInterface $user): Response

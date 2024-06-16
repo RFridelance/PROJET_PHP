@@ -17,16 +17,16 @@ class Event
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $Title = null;
+    private ?string $title = null;
 
     #[ORM\Column(length: 1500, nullable: true)]
-    private ?string $Description = null;
+    private ?string $description = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
-    private ?\DateTimeInterface $Date = null;
+    private ?\DateTimeInterface $date = null;
 
     #[ORM\Column(nullable: true)]
-    private ?int $participant_max = null;
+    private ?int $participantMax = null;
 
     #[ORM\Column]
     private ?bool $public = null;
@@ -36,7 +36,6 @@ class Event
 
     #[ORM\ManyToOne(targetEntity: User::class)]
     private ?User $creator = null; // Relation avec l'utilisateur créateur de l'événement
-
 
     public function __construct()
     {
@@ -50,48 +49,48 @@ class Event
 
     public function getTitle(): ?string
     {
-        return $this->Title;
+        return $this->title;
     }
 
-    public function setTitle(string $Title): static
+    public function setTitle(string $title): static
     {
-        $this->Title = $Title;
+        $this->title = $title;
 
         return $this;
     }
 
     public function getDescription(): ?string
     {
-        return $this->Description;
+        return $this->description;
     }
 
-    public function setDescription(?string $Description): static
+    public function setDescription(?string $description): static
     {
-        $this->Description = $Description;
+        $this->description = $description;
 
         return $this;
     }
 
     public function getDate(): ?\DateTimeInterface
     {
-        return $this->Date;
+        return $this->date;
     }
 
-    public function setDate(?\DateTimeInterface $Date): static
+    public function setDate(?\DateTimeInterface $date): static
     {
-        $this->Date = $Date;
+        $this->date = $date;
 
         return $this;
     }
 
     public function getParticipantMax(): ?int
     {
-        return $this->participant_max;
+        return $this->participantMax;
     }
 
-    public function setParticipantMax(?int $participant_max): static
+    public function setParticipantMax(?int $participantMax): static
     {
-        $this->participant_max = $participant_max;
+        $this->participantMax = $participantMax;
 
         return $this;
     }
@@ -149,12 +148,11 @@ class Event
 
     public function isFull(): bool
     {
-        return $this->users->count() >= $this->participant_max;
+        return $this->users->count() >= $this->participantMax;
     }
 
     public function getRemainingPlaces(): int
     {
-        return $this->participant_max - $this->users->count();
+        return $this->participantMax - $this->users->count();
     }
-
 }

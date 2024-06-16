@@ -12,6 +12,16 @@
             <a class="btn btn-primary" href="{{ path('app_event_new') }}" role="button">Créer un événement</a>
         </div>
 
+        <div class="mb-3">
+            {{ form_start(filter_form) }}
+            {{ form_row(filter_form.title) }}
+            {{ form_row(filter_form.dateFrom) }}
+            {{ form_row(filter_form.dateTo) }}
+            {{ form_row(filter_form.public) }}
+            <button type="submit" class="btn btn-primary">Filtrer</button>
+            {{ form_end(filter_form) }}
+        </div>
+
         <table class="table table-striped table-hover text-center">
             <thead>
             <tr>
@@ -34,11 +44,11 @@
                         <small>{{ event.getRemainingPlaces() }} places restantes</small>
                     </td>
                     <td>
-                        {% if event.isFull() %}
-                            <span>(Complet)</span>
+                        {% if event.users.contains(app.user) %}
+                            <a class="btn btn-danger btn-sm m-1" href="{{ path('app_event_unsubscribe', {'id': event.id}) }}">Se désinscrire</a>
                         {% else %}
-                            {% if event.users.contains(app.user) %}
-                                <a class="btn btn-danger btn-sm m-1" href="{{ path('app_event_unsubscribe', {'id': event.id}) }}">Se désinscrire</a>
+                            {% if event.isFull() %}
+                                <span>(Complet)</span>
                             {% else %}
                                 <a class="btn btn-primary btn-sm m-1" href="{{ path('app_event_subscribe', {'id': event.id}) }}">S'inscrire</a>
                             {% endif %}
