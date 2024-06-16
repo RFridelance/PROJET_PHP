@@ -58,6 +58,11 @@ class EventController extends AbstractController
 
         $queryBuilder = $entityManager->getRepository(Event::class)->createQueryBuilder('e');
 
+        // Ajoutez une condition par défaut pour les événements publics si l'utilisateur n'est pas connecté
+        if (!$this->getUser()) {
+            $queryBuilder->where('e.public = true');
+        }
+
         if ($filterForm->isSubmitted() && $filterForm->isValid()) {
             $data = $filterForm->getData();
 
@@ -82,11 +87,7 @@ class EventController extends AbstractController
             }
         }
 
-        if ($this->getUser()) {
-            $queryBuilder->orderBy('e.date', 'DESC');
-        } else {
-            $queryBuilder->where('e.public = true')->orderBy('e.date', 'DESC');
-        }
+        $queryBuilder->orderBy('e.date', 'DESC');
 
         $query = $queryBuilder->getQuery();
 
@@ -101,6 +102,7 @@ class EventController extends AbstractController
             'filter_form' => $filterForm->createView(),
         ]);
     }
+
 
     #[Route('/event/{id}/edit', name: 'app_event_edit', methods: ['GET', 'POST'])]
     public function edit(Event $event, Request $request, EntityManagerInterface $entityManager): Response

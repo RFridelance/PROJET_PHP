@@ -17,13 +17,13 @@ class AccueilController extends AbstractController
         // Si l'utilisateur est connecté, récupérez tous les événements
         if ($this->getUser()) {
             $query = $entityManager->getRepository(Event::class)->createQueryBuilder('e')
-                ->orderBy('e.Date', 'DESC')
+                ->orderBy('e.date', 'DESC')
                 ->getQuery();
         } else {
             // Sinon, récupérez seulement les événements publics
             $query = $entityManager->getRepository(Event::class)->createQueryBuilder('e')
                 ->where('e.public = true')
-                ->orderBy('e.Date', 'DESC')
+                ->orderBy('e.date', 'DESC')
                 ->getQuery();
         }
 

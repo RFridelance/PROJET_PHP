@@ -33,8 +33,7 @@ class EventFilterType extends AbstractType
                 ],
                 'label' => 'Visibilité',
                 'required' => false,
-            ])
-            ->add('filter', SubmitType::class, ['label' => 'Filtrer']);
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
