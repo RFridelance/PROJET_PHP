@@ -59,9 +59,6 @@ class EventController extends AbstractController
     #[Route('/events', name: 'app_event_list')]
     public function list(Request $request, EntityManagerInterface $entityManager, PaginatorInterface $paginator): Response
     {
-        // Utiliser le voter pour vérifier si l'utilisateur peut voir les événements non publics
-        $this->denyAccessUnlessGranted('view', new Event());
-
         // Si l'utilisateur est connecté, récupérez tous les événements
         if ($this->getUser()) {
             $query = $entityManager->getRepository(Event::class)->createQueryBuilder('e')

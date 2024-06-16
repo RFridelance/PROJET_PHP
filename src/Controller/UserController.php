@@ -51,8 +51,6 @@ class UserController extends AbstractController
     public function changePassword(Request $request, UserPasswordHasherInterface $passwordHasher, EntityManagerInterface $entityManager): Response
     {
 
-
-
         $user = $this->getUser(); // Récupérer l'utilisateur actuellement connecté
 
         if (!$user) {
